@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="JPA 2.0-2.0">
+    <archive path="/home/zoxir/Ethelon/Industrial Meeting/Ethelon/lib/javax.persistence.jar" />
+  </library>
+  <library name="Maven: javax.validation:validation-api:1.1.0.Final">
+    <archive path="/home/zoxir/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar" />
+  </library>
+  <library name="Maven: junit:junit:3.8.1">
+    <archive path="/home/zoxir/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar" />
+  </library>
+  <library name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1">
+    <archive path="/home/zoxir/.m2/repository/org/eclipse/persistence/commonj.sdo/2.1.1/commonj.sdo-2.1.1.jar" />
+  </library>
+  <library name="Maven: org.eclipse.persistence:eclipselink:2.7.0">
+    <archive path="/home/zoxir/.m2/repository/org/eclipse/persistence/eclipselink/2.7.0/eclipselink-2.7.0.jar" />
+  </library>
+  <library name="Maven: org.eclipse.persistence:javax.persistence:2.2.0">
+    <archive path="/home/zoxir/.m2/repository/org/eclipse/persistence/javax.persistence/2.2.0/javax.persistence-2.2.0.jar" />
+  </library>
+  <library name="Maven: org.glassfish:javax.json:1.0.4">
+    <archive path="/home/zoxir/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar" />
+  </library>
+  <library name="Maven: org.xerial:sqlite-jdbc:3.21.0.1">
+    <archive path="/home/zoxir/.m2/repository/org/xerial/sqlite-jdbc/3.21.0.1/sqlite-jdbc-3.21.0.1.jar" />
+  </library>
+  <library name="ejb-3.2" />
+  <library name="Maven: javax.faces:jsf-api:2.1">
+    <archive path="/home/zoxir/.m2/repository/javax/faces/jsf-api/2.1/jsf-api-2.1.jar" />
+  </library>
+</eclipse-userlibraries>
+

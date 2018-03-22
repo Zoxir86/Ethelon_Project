@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_1_5" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
+	<lib name="Maven: junit:junit:3.8.1" scope="TEST"/>
+	<lib name="Maven: javax.faces:jsf-api:2.1" scope="PROVIDED"/>
+	<levels>
+		<level name="ejb-3.2" value="project"/>
+		<level name="JPA 2.0-2.0" value="project"/>
+		<level name="Maven: junit:junit:3.8.1" value="project"/>
+		<level name="Maven: org.xerial:sqlite-jdbc:3.21.0.1" value="project"/>
+		<level name="Maven: org.eclipse.persistence:eclipselink:2.7.0" value="project"/>
+		<level name="Maven: org.eclipse.persistence:javax.persistence:2.2.0" value="project"/>
+		<level name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" value="project"/>
+		<level name="Maven: javax.validation:validation-api:1.1.0.Final" value="project"/>
+		<level name="Maven: org.glassfish:javax.json:1.0.4" value="project"/>
+		<level name="Maven: javax.faces:jsf-api:2.1" value="project"/>
+	</levels>
+</component>
