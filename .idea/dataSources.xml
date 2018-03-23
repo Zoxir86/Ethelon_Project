@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ethelon.db" uuid="49815254-abe4-491c-9964-4097630139cd">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../Ethelon\ethelon.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
     <data-source source="LOCAL" name="identifier.sqlite" uuid="49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -19,20 +10,11 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="ethelon.db [2]" uuid="3e57eed6-653d-4c62-ae7a-747cfafecdf4">
+    <data-source source="LOCAL" name="ethelon.db" uuid="0bf55a17-3525-4002-89d4-89d7c9df267a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/ethelon.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="ethelong" uuid="c3ecf394-251c-40eb-a29f-84a474ef3de7">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:/opt/glassfish4/glassfish/domains/domain1/config/ethelon.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:/Program Files/Java/glassfish4/glassfish/domains/domain1/config/ethelon.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>

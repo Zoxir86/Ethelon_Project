@@ -5,37 +5,9 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Create Account</title>
+<title>Success</title>
 </head>
 <body>
-	<h:form>
-		<h3>Glad you decide join us!</h3>
-		<h3>Please fill out all your information in the form below!</h3>
-    	<h:panelGrid columns="2" >
-    	<h:outputLabel value="Username: "/>
-    	<h:inputText value="#{volcontr.volunteerDto.username}"/>
-			<h:outputLabel value="Password: "/>
-			<h:inputText value="#{volcontr.volunteerDto.password}"/>
-			<h:outputLabel value="Email:" />
-			<h:inputText value="#{volcontr.volunteerDto.email}"/>
-
-			<h:outputLabel value="Name: "/>
-			<h:inputText value="#{volcontr.volunteerDto.name}"/>
-			<h:outputLabel value="Surname:"/>
-    	<h:inputText value="#{volcontr.volunteerDto.surname}"/>
-    	<h:outputLabel value="Date Of Birth"/>
-			<h:inputText value="#{volcontr.volunteerDto.dateOfBirth}">
-				<f:convertDateTime pattern="dd/MM/yyyy" /></h:inputText>
-   		<br></br>
-    	<h:outputLabel value="Area: "/>
-    	<h:inputText value="#{volcontr.volunteerDto.area}"/>
-    	<h:outputLabel value="Telephone: "/>
-    	<h:inputText value="#{volcontr.volunteerDto.telephone}"/>
-
-
-    	</h:panelGrid>
-    	<h:commandButton value="Submit" action="#{volcontr.setVolunteerDto()}"/>
-    	<h:commandButton value="Back" action="#{volcontr.backPage}"/>
-    </h:form>
+	<h3>Success!</h3>
 </body>
 </html>

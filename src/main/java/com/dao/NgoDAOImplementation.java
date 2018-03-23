@@ -154,13 +154,13 @@ public class NgoDAOImplementation implements NgoDAO {
         entity.setSocialMedium2(ngo.getSocialMedium2());
         entity.setSocialMedium3(ngo.getSocialMedium3());
         entity.setLogoId(ngo.getLogoId());
-        entity.setLastOpportunityUpload(Utilities.ft.format(ngo.getLastOpportunityUpload()));
+       // entity.setLastOpportunityUpload(Utilities.ft.format(ngo.getLastOpportunityUpload()));
         entity.setUsername(ngo.getUsername());
         entity.setPassword(ngo.getPassword());
         entity.setTelephone(ngo.getTelephone());
         entity.setEmail(ngo.getEmail());
-        entity.setLoggedInLast(Utilities.ft.format(ngo.getLoggedInLast()));
-        entity.setAccountCreated(Utilities.ft.format(ngo.getAccountCreated()));
+       // entity.setLoggedInLast(Utilities.ft.format(ngo.getLoggedInLast()));
+       // entity.setAccountCreated(Utilities.ft.format(ngo.getAccountCreated()));
         return entity;
     }
 

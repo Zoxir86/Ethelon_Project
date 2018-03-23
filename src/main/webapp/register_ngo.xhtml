@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Create Account</title>
+</head>
+<body>
+<h:form>
+    <h3>Glad you decided to join us!</h3>
+    <h3>Please fill out all your information in the form below!</h3>
+    <h:panelGrid columns="2" >
+        <h:outputLabel value="Username: "/>
+        <h:inputText value="#{ngocontr.ngoDto.username}"/>
+        <h:outputLabel value="Password: "/>
+        <h:inputText value="#{ngocontr.ngoDto.password}"/>
+        <h:outputLabel value="Organization Name: "/>
+        <h:inputText value="#{ngocontr.ngoDto.organizationName}"/>
+        <h:outputLabel value="Email:" />
+        <h:inputText value="#{ngocontr.ngoDto.email}"/>
+        <h:outputLabel value="Telephone: "/>
+        <h:inputText value="#{ngocontr.ngoDto.telephone}"/>
+        <h:outputLabel value="WebPage: "/>
+        <h:inputText value="#{ngocontr.ngoDto.webpage}"/>
+
+        <h:outputLabel value="Country: "/>
+        <h:inputText value="#{ngocontr.ngoDto.country}"/>
+
+        <h:outputLabel value="Address: "/>
+        <h:inputText value="#{ngocontr.ngoDto.address}"/>
+        <h:outputLabel value="Street Number: "/>
+        <h:inputText value="#{ngocontr.ngoDto.streetNo}"/>
+
+        <h:outputLabel value="Contact Person: "/>
+        <h:inputText value="#{ngocontr.ngoDto.contactPerson}"/>
+        <h:outputLabel value="Περιγραφή ΜΚΟ: "/>
+        <h:inputText value="#{ngocontr.ngoDto.descGreek}"/>
+        <h:outputLabel value="Description NGO: "/>
+        <h:inputText value="#{ngocontr.ngoDto.descEnglish}"/>
+        <h:outputLabel value="Facebook: "/>
+        <h:inputText value="#{ngocontr.ngoDto.socialMedium1}"/>
+        <h:outputLabel value="Twitter: "/>
+        <h:inputText value="#{ngocontr.ngoDto.socialMedium2}"/>
+        <h:outputLabel value="Instagram: "/>
+        <h:inputText value="#{ngocontr.ngoDto.socialMedium3}"/>
+
+
+
+    </h:panelGrid>
+    <h:commandButton value="Submit" action="#{ngocontr.setNgoDto()}"/>
+    <h:commandButton value="Back" action="#{ngocontr.backPage}"/>
+</h:form>
+</body>
+</html>
