@@ -1,5 +1,7 @@
 package com.dto;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.util.Date;
 
 public class NgoDTO {
@@ -194,7 +196,7 @@ public class NgoDTO {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
     public String getTelephone() {

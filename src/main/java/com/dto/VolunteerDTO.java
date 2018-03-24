@@ -1,7 +1,11 @@
 package com.dto;
 
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.util.Date;
+
+
 
 public class VolunteerDTO {
 
@@ -31,7 +35,7 @@ public class VolunteerDTO {
     public VolunteerDTO(String name, String surname, Date dateOfBirth, boolean male, boolean female,
                         String area, /*String occupation, String interests,*/ Date appliedLast, int databaseID,
                         String username, String password, String telephone, String email, Date loggedInLast,
-                        Date accountCreated) {
+                        Date accountCreated){
 
         this.name = name;
         this.surname = surname;
@@ -135,9 +139,7 @@ public class VolunteerDTO {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password) { this.password = BCrypt.hashpw(password, BCrypt.gensalt());}
 
     public String getTelephone() {
         return telephone;
