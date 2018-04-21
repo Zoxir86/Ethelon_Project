@@ -3,6 +3,7 @@ package com.database;
 import javax.persistence.*;
 import java.util.Date;
 
+@Table(name = "user")
 @Entity(name="User")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "User_Type")

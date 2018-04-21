@@ -8,9 +8,9 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Utilities {
 
-    protected final static SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd");
+    public final static SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd");
 
-    protected static String ProtectPassword(String password)
+    public static String ProtectPassword(String password)
     {
         byte[] encrypted = null;
 
@@ -29,7 +29,7 @@ public class Utilities {
         return new String(encrypted);
     }
 
-    protected static String RevealPassword(String password)
+    public static String RevealPassword(String password)
     {
         byte[] encrypted = password.getBytes();
         String decrypted = null;

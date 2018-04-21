@@ -3,14 +3,12 @@ package com.dao;
 import com.dto.NgoDTO;
 import com.database.Ngo;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class NgoDAOImplementation implements NgoDAO {
 

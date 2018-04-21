@@ -10,11 +10,11 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="ethelon.db" uuid="0bf55a17-3525-4002-89d4-89d7c9df267a">
+    <data-source source="LOCAL" name="ethelon.db" uuid="89271cf0-b338-40fb-9e44-333ac173c35e">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:/Program Files/Java/glassfish4/glassfish/domains/domain1/config/ethelon.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Angelina\IdeaProjects\Ethelon_Project\ethelon.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
