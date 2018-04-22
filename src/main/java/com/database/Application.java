@@ -1,9 +1,6 @@
 package com.database;
 
-import com.dao.Utilities;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Table(name = "application")
 @Entity(name="Application")

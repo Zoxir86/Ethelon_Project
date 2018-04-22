@@ -1,14 +1,64 @@
 package com.Tests;
 
+
+
+import com.dao.Utilities;
+import com.database.Area;
+import com.database.Question;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.SortedMap;
 
 public class MainTest {
 
     public static void main(String args[])
     {
-        String PERSISTENCE_UNIT_NAME = "Ethelon";
+
+
+
+      /*  String csvFile = "test.csv";
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ";";
+
+        try {
+
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+
+                // use comma as separator
+                String[] country = line.split(cvsSplitBy);
+
+                String h = country[0];
+                String r = country[1];
+                int j = 9;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }*/
+
+
+
+       /* String PERSISTENCE_UNIT_NAME = "Ethelon";
         EntityManagerFactory factory;
         EntityManager em;
 
