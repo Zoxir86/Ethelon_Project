@@ -77,4 +77,4 @@ public class Area {
     public void setCountry(String country) {
         this.country = country;
     }
-}
+} // End of Area class.

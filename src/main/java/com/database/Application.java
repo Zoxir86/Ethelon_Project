@@ -124,4 +124,4 @@ public class Application {
     public void setComments(String comments) {
         this.comments = comments;
     }
-}
+} // End of Application class.

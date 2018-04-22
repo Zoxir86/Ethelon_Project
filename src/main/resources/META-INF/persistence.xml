@@ -14,6 +14,7 @@
         <class>com.database.Application</class>
         <class>com.database.Opportunity</class>
         <class>com.database.Area</class>
+        <class>com.database.SocialMedium</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
             <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:ethelon.db" />
