@@ -56,6 +56,11 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
             application.setVolunteer(volunteer);
             em.persist(application);
 
+            volunteer.getPendingApplicationsList().add(application);
+            volunteer.getApplicationsList().add(application);
+            volunteer.setAppliedLast(Utilities.ft.format(new Date()));
+            em.persist(volunteer);
+
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {
@@ -135,6 +140,7 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
         boolean result;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
+        //VolunteerDAOImplementation vdimp = new VolunteerDAOImplementation();
 
         try {
             em.getTransaction().begin();
@@ -142,6 +148,13 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
             application.setStatus(ApplicationState.PENDING);
             application.setStatusUpdate(Utilities.ft.format(new Date()));
             em.persist(application);
+
+            Volunteer volunteer = em.find(Volunteer.class, application.getVolunteer().getUserID());
+            if(!VolunteerDAOImplementation.isVolunteerRelatedToApplication(volunteer, application)) volunteer.getApplicationsList().add(application);
+            VolunteerDAOImplementation.refreshPendingApplicationsList(volunteer);
+            volunteer.setAppliedLast(Utilities.ft.format(new Date()));
+            em.persist(volunteer);
+
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {
@@ -171,6 +184,12 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
             application.setStatus(ApplicationState.APPROVED);
             application.setStatusUpdate(Utilities.ft.format(new Date()));
             em.persist(application);
+
+            Volunteer volunteer = em.find(Volunteer.class, application.getVolunteer().getUserID());
+            if(!VolunteerDAOImplementation.isVolunteerRelatedToApplication(volunteer, application)) volunteer.getApplicationsList().add(application);
+            VolunteerDAOImplementation.refreshPendingApplicationsList(volunteer);
+            em.persist(volunteer);
+
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {
@@ -200,6 +219,12 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
             application.setStatus(ApplicationState.DISAPPROVED);
             application.setStatusUpdate(Utilities.ft.format(new Date()));
             em.persist(application);
+
+            Volunteer volunteer = em.find(Volunteer.class, application.getVolunteer().getUserID());
+            if(!VolunteerDAOImplementation.isVolunteerRelatedToApplication(volunteer, application)) volunteer.getApplicationsList().add(application);
+            VolunteerDAOImplementation.refreshPendingApplicationsList(volunteer);
+            em.persist(volunteer);
+
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {
@@ -215,7 +240,7 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
 
 
     /******************************************************************************************************************
-     Alters status of an application as "WithdrawnByVolunteer".
+     Alters status of an application as "Withdrawn By Volunteer".
      *****************************************************************************************************************/
 
     public boolean markApplicationAsWithdrawnByVolunteer(ApplicationDTO applicationDTO) {
@@ -229,6 +254,12 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
             application.setStatus(ApplicationState.WITHDRAWN);
             application.setStatusUpdate(Utilities.ft.format(new Date()));
             em.persist(application);
+
+            Volunteer volunteer = em.find(Volunteer.class, application.getVolunteer().getUserID());
+            if(!VolunteerDAOImplementation.isVolunteerRelatedToApplication(volunteer, application)) volunteer.getApplicationsList().add(application);
+            VolunteerDAOImplementation.refreshPendingApplicationsList(volunteer);
+            em.persist(volunteer);
+
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {
@@ -258,6 +289,12 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
             application.setStatus(ApplicationState.CANCELLED);
             application.setStatusUpdate(Utilities.ft.format(new Date()));
             em.persist(application);
+
+            Volunteer volunteer = em.find(Volunteer.class, application.getVolunteer().getUserID());
+            if(!VolunteerDAOImplementation.isVolunteerRelatedToApplication(volunteer, application)) volunteer.getApplicationsList().add(application);
+            VolunteerDAOImplementation.refreshPendingApplicationsList(volunteer);
+            em.persist(volunteer);
+
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {

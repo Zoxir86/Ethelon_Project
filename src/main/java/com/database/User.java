@@ -1,37 +1,56 @@
 package com.database;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Table(name = "user")
 @Entity(name="User")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "User_Type")
+
 public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "id", updatable = false, nullable = false)                  // A unique identification number in the database.
     private int userID;
 
-    @Column(name="UserName")
+    @Column(name="UserName")                                                   // A unique string identifier for the user. Part of the credentials.
     private String username = null;
 
-    @Column(name="PassWord")
+    @Column(name="PassWord")                                                   // A unique string identifier for the user. Part of the credentials.
     private String password = null;
 
-    @Column(name="Telephone")
+    @Column(name="Telephone")                                                  // A user's telephone number.
     private String telephone = null;
 
-    @Column(name="Email")
+    @Column(name="Email")                                                      // A user's e-mail address.
     private String email = null;
 
-    @Column(name="LoggedInLast")
+    @Column(name="LoggedInLast")                                               // Latest date of log-in.
     private String loggedInLast = null;
 
-    @Column(name="AccountCreated")
+    @Column(name="AccountCreated")                                             // The date on which the user account has been created.
     private String accountCreated = null;
 
+    @Column(name="AccountUpdated")                                             // The date on which the user account has last been updated.
+    private String accountUpdated = null;
+
+    /**************************************  Constructors   ***********************************************/
+    public User( ) {
+        super();
+    }
+
+    public User(String username, String password, String telephone, String email, String loggedInLast, String accountCreated, String accountUpdated) {
+        this.username = username;
+        this.password = password;
+        this.telephone = telephone;
+        this.email = email;
+        this.loggedInLast = loggedInLast;
+        this.accountCreated = accountCreated;
+        this.accountUpdated = accountUpdated;
+    }
+
+    /***************************************   Getters and Setters   ***************************************/
     public int getUserID() {
         return userID;
     }
@@ -86,6 +105,14 @@ public abstract class User {
 
     public void setAccountCreated(String accountCreated) {
         this.accountCreated = accountCreated;
+    }
+
+    public String getAccountUpdated() {
+        return accountUpdated;
+    }
+
+    public void setAccountUpdated(String accountUpdated) {
+        this.accountUpdated = accountUpdated;
     }
 }
 

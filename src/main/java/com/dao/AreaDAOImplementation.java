@@ -497,7 +497,7 @@ public class AreaDAOImplementation implements AreaDAO {
 
 
     /******************************************************************************************************************
-     Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
+     Utility: Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
      *****************************************************************************************************************/
 
     public static AreaDTO transformAreaEntity2DTO(Area entity)
@@ -513,7 +513,7 @@ public class AreaDAOImplementation implements AreaDAO {
 
 
     /******************************************************************************************************************
-     Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
+     Utility: Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
      *****************************************************************************************************************/
 
     public static Area transformAreaDTO2Entity(AreaDTO dto)
@@ -524,6 +524,32 @@ public class AreaDAOImplementation implements AreaDAO {
         entity.setPrefecture(dto.getPrefecture());
         entity.setCountry(dto.getCountry());
         entity.setPostalCode(dto.getPostalCode());
+        return entity;
+    }
+
+
+    /******************************************************************************************************************
+     Utility: Returns an Area entity as persisted in the database when the databaseID is known.
+     *****************************************************************************************************************/
+
+    public static Area findAreaById(int databaseID)
+    {
+        if(databaseID == 0) return null;
+
+        Area entity;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try {
+            entity = em.find( Area.class, databaseID );
+        } catch(Exception e) {
+            entity = null;
+        }
+        finally {
+            em.close();
+            factory.close();
+        }
+
         return entity;
     }
 }

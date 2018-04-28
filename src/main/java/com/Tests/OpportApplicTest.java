@@ -5,6 +5,7 @@ import com.dao.VolunteerDAOImplementation;
 import com.database.Application;
 import com.database.Opportunity;
 import com.database.Question;
+import com.database.Sex;
 import com.dto.ApplicationDTO;
 import com.dto.OpportunityDTO;
 import com.dto.VolunteerDTO;
@@ -31,9 +32,9 @@ public class OpportApplicTest {
         // 1: Creating an application and associating it with an opportunity and a volunteer.
         em.getTransaction().begin();
 
-        VolunteerDTO voldto = new VolunteerDTO("Apostolos2", "Thanou", new Date(), true, false, "Kalamata",
-                new Date(), 0, "ap.the.best", "foo", "6940000000", "apostolos@gmail.com",
-                new Date(), new Date());
+        VolunteerDTO voldto = new VolunteerDTO("Melpomeni", "Stassinou", new Date(), Sex.FEMALE, false, false, null, null,
+                null, null, null, null, "", 0, "melpo", "1234", "6944444444",
+                "melpo@yahoo.com", null, null, null);
         voldto.setDatabaseID(1);  // Normally we do not set this, but in the example we want to avoid searching.
         VolunteerDAOImplementation vi = new VolunteerDAOImplementation();
         vi.insertVolunteer(voldto);

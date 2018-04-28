@@ -1,60 +1,68 @@
 package com.dto;
 
 
-import org.mindrot.jbcrypt.BCrypt;
-
 import java.util.Date;
-
+import java.util.List;
 
 
 public class VolunteerDTO {
 
-    private String name = null;
-    private String surname = null;
-    private Date dateOfBirth = null;
-    private boolean male;
-    private boolean female;
-    private String area = null;
-    private String occupation = null;
-    private String interests = null;
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ As Volunteer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    private String name = null;                                 // A person's first name.
+    private String surname = null;                              // A person's surname.
+    private Date dateOfBirth = null;                            // A person's birthday.
+    private String sex;                                         // A person's sex. Constants provided by the "Sex" class.
+    private boolean isVolunteerYN;                              // Marked positively when the person has previous experience as volunteer.
+    private boolean isEthelonVolunteerYN;                       // Marked positively when the person has previous experience as volunteer.
+    private Date appliedLast = null;                            // Latest date of application.
+    private AreaDTO area = null;                                // Accommodation area. Unique areas correspond to postal codes in the database.
+    private List<ApplicationDTO> applicationsList;              // Applications history for the person.
+    private List<ApplicationDTO> pendingApplicationsList;       // Pending applications for the person.
+    private List<InterestDTO> interestsList;                    // Topics in which the person has expressed interest in.
+    private List<KnowledgeAreaDTO> knowledgeAreasList;          // Knowledge area in which the person has expressed proficiency in.
+    private String otherKnowledge;                              // Knowledge areas as a free string/comment marked as "other".
 
-    private Date appliedLast = null;
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ As User ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    private int databaseID;                                     // A unique database identification number.
+    private String username = null;                             // A unique string identifier for the user. Part of the credentials.
+    private String password = null;                             // A unique string identifier for the user. Part of the credentials.
+    private String telephone = null;                            // A user's telephone number.
+    private String email = null;                                // A user's e-mail address.
+    private Date loggedInLast = null;                           // Latest date of log-in.
+    private Date accountCreated = null;                         // The date on which the user account has been created.
+    private Date accountUpdated = null;                         // The date on which the user account has last been updated.
 
-    private int databaseID;
-    private String username = null;
-    private String password = null;
-    private String telephone = null;
-    private String email = null;
-    private Date loggedInLast = null;
-    private Date accountCreated = null;
 
-    public VolunteerDTO(){
-
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public VolunteerDTO( ) {
+        super();
     }
 
-    public VolunteerDTO(String name, String surname, Date dateOfBirth, boolean male, boolean female,
-                        String area, /*String occupation, String interests,*/ Date appliedLast, int databaseID,
-                        String username, String password, String telephone, String email, Date loggedInLast,
-                        Date accountCreated){
-
+    public VolunteerDTO(String name, String surname, Date dateOfBirth, String sex, boolean isVolunteerYN, boolean isEthelonVolunteerYN, Date appliedLast, AreaDTO area, List<ApplicationDTO> applicationsList, List<ApplicationDTO> pendingApplicationsList, List<InterestDTO> interestsList, List<KnowledgeAreaDTO> knowledgeAreasList, String otherKnowledge, int databaseID, String username, String password, String telephone, String email, Date loggedInLast, Date accountCreated, Date accountUpdated) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
-        this.male = male;
-        this.female = female;
-        this.area = area;
-        this.occupation = occupation;
-        this.interests = interests;
+        this.sex = sex;
+        this.isVolunteerYN = isVolunteerYN;
+        this.isEthelonVolunteerYN = isEthelonVolunteerYN;
         this.appliedLast = appliedLast;
+        this.area = area;
+        this.applicationsList = applicationsList;
+        this.pendingApplicationsList = pendingApplicationsList;
+        this.interestsList = interestsList;
+        this.knowledgeAreasList = knowledgeAreasList;
+        this.otherKnowledge = otherKnowledge;
+        this.databaseID = databaseID;
         this.username = username;
         this.password = password;
         this.telephone = telephone;
         this.email = email;
         this.loggedInLast = loggedInLast;
         this.accountCreated = accountCreated;
-        this.databaseID = databaseID;
+        this.accountUpdated = accountUpdated;
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public String getName() {
         return name;
     }
@@ -79,44 +87,28 @@ public class VolunteerDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isMale() {
-        return male;
+    public String getSex() {
+        return sex;
     }
 
-    public void setMale(boolean male) {
-        this.male = male;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public boolean isFemale() {
-        return female;
+    public boolean isVolunteerYN() {
+        return isVolunteerYN;
     }
 
-    public void setFemale(boolean female) {
-        this.female = female;
+    public void setVolunteerYN(boolean volunteerYN) {
+        isVolunteerYN = volunteerYN;
     }
 
-    public String getArea() {
-        return area;
+    public boolean isEthelonVolunteerYN() {
+        return isEthelonVolunteerYN;
     }
 
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-
-    public String getInterests() {
-        return interests;
-    }
-
-    public void setInterests(String interests) {
-        this.interests = interests;
+    public void setEthelonVolunteerYN(boolean ethelonVolunteerYN) {
+        isEthelonVolunteerYN = ethelonVolunteerYN;
     }
 
     public Date getAppliedLast() {
@@ -125,6 +117,62 @@ public class VolunteerDTO {
 
     public void setAppliedLast(Date appliedLast) {
         this.appliedLast = appliedLast;
+    }
+
+    public AreaDTO getArea() {
+        return area;
+    }
+
+    public void setArea(AreaDTO area) {
+        this.area = area;
+    }
+
+    public List<ApplicationDTO> getApplicationsList() {
+        return applicationsList;
+    }
+
+    public void setApplicationsList(List<ApplicationDTO> applicationsList) {
+        this.applicationsList = applicationsList;
+    }
+
+    public List<ApplicationDTO> getPendingApplicationsList() {
+        return pendingApplicationsList;
+    }
+
+    public void setPendingApplicationsList(List<ApplicationDTO> pendingApplicationsList) {
+        this.pendingApplicationsList = pendingApplicationsList;
+    }
+
+    public List<InterestDTO> getInterestsList() {
+        return interestsList;
+    }
+
+    public void setInterestsList(List<InterestDTO> interestsList) {
+        this.interestsList = interestsList;
+    }
+
+    public List<KnowledgeAreaDTO> getKnowledgeAreasList() {
+        return knowledgeAreasList;
+    }
+
+    public void setKnowledgeAreasList(List<KnowledgeAreaDTO> knowledgeAreasList) {
+        this.knowledgeAreasList = knowledgeAreasList;
+    }
+
+    public String getOtherKnowledge() {
+        return otherKnowledge;
+    }
+
+    public void setOtherKnowledge(String otherKnowledge) {
+        this.otherKnowledge = otherKnowledge;
+    }
+
+    public int getDatabaseID() {
+        return databaseID;
+    }
+
+    public void setDatabaseID(int databaseID) {
+        this.databaseID = databaseID;
     }
 
     public String getUsername() {
@@ -139,7 +187,9 @@ public class VolunteerDTO {
         return password;
     }
 
-    public void setPassword(String password) { this.password = BCrypt.hashpw(password, BCrypt.gensalt());}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getTelephone() {
         return telephone;
@@ -173,11 +223,11 @@ public class VolunteerDTO {
         this.accountCreated = accountCreated;
     }
 
-    public int getDatabaseID() {
-        return databaseID;
+    public Date getAccountUpdated() {
+        return accountUpdated;
     }
 
-    public void setDatabaseID(int databaseID) {
-        this.databaseID = databaseID;
+    public void setAccountUpdated(Date accountUpdated) {
+        this.accountUpdated = accountUpdated;
     }
 }

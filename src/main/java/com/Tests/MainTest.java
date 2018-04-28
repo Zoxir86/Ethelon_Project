@@ -3,8 +3,11 @@ package com.Tests;
 
 
 import com.dao.Utilities;
+import com.dao.VolunteerDAO;
+import com.dao.VolunteerDAOImplementation;
 import com.database.Area;
 import com.database.Question;
+import com.dto.VolunteerDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,6 +17,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.SortedMap;
 
@@ -21,8 +25,12 @@ public class MainTest {
 
     public static void main(String args[])
     {
+       /* VolunteerDAO vdao = new VolunteerDAOImplementation();
+        VolunteerDTO voldto = new VolunteerDTO("Apostolos2", "Thanou", new Date(), true, false, "Kalamata",
+                new Date(), 0, "ap.the.best", "foo", "6940000000", "apostolos@gmail.com",
+                new Date(), new Date());
 
-
+        vdao.insertVolunteer(voldto);
 
       /*  String csvFile = "test.csv";
         BufferedReader br = null;
