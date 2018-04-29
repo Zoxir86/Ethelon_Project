@@ -127,7 +127,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
             if(dto.getInterestsList() != null && !dto.getInterestsList().isEmpty())
             {
                 for (InterestDTO temp : dto.getInterestsList()) {
-                    entity.getInterestsList().add(InterestDAOImplementation.findInterestById(temp.getDatabaseId()));
+                    entity.getInterestsList().add(InterestDAOImplementation.findInterestById(temp.getDatabaseID()));
                 }
             }
             entity.setKnowledgeAreasList(new ArrayList<KnowledgeArea>());
@@ -207,7 +207,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
         if(dto.getInterestsList() != null && !dto.getInterestsList().isEmpty())
         {
             for (InterestDTO temp : dto.getInterestsList()) {
-                entity.getInterestsList().add(InterestDAOImplementation.findInterestById(temp.getDatabaseId()));
+                entity.getInterestsList().add(InterestDAOImplementation.findInterestById(temp.getDatabaseID()));
             }
         }
         entity.setKnowledgeAreasList(new ArrayList<KnowledgeArea>());

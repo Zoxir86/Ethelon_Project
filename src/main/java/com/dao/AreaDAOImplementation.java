@@ -437,7 +437,7 @@ public class AreaDAOImplementation implements AreaDAO {
 
 
     /********************************************************************************************************************
-     Checks if the Area table is currently empty.
+     Utility: Checks if the Area table is currently empty.
      *******************************************************************************************************************/
 
     private boolean checkIfAreaTableIsEmpty() {
@@ -461,7 +461,7 @@ public class AreaDAOImplementation implements AreaDAO {
 
 
     /********************************************************************************************************************
-     If the Area table is currently empty, it populates it with fixed values.
+     Utility: If the Area table is currently empty, it populates it with fixed values.
      *******************************************************************************************************************/
 
     private boolean initializeAreaTable() {

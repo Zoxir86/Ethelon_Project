@@ -2,11 +2,13 @@ package com.Tests;
 
 
 
+import com.dao.InterestDAOImplementation;
 import com.dao.Utilities;
 import com.dao.VolunteerDAO;
 import com.dao.VolunteerDAOImplementation;
 import com.database.Area;
 import com.database.Question;
+import com.dto.InterestDTO;
 import com.dto.VolunteerDTO;
 
 import javax.persistence.EntityManager;
@@ -25,6 +27,10 @@ public class MainTest {
 
     public static void main(String args[])
     {
+        InterestDAOImplementation i = new InterestDAOImplementation();
+        ArrayList<InterestDTO> s = i.getFullListOfInterests();
+        int h = 0;
+
        /* VolunteerDAO vdao = new VolunteerDAOImplementation();
         VolunteerDTO voldto = new VolunteerDTO("Apostolos2", "Thanou", new Date(), true, false, "Kalamata",
                 new Date(), 0, "ap.the.best", "foo", "6940000000", "apostolos@gmail.com",

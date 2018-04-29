@@ -2,13 +2,13 @@
 package com.dao;
 
 import com.database.Area;
+import com.database.Interest;
 
-import java.text.SimpleDateFormat;
-import java.security.Key;
-import java.util.ArrayList;
-import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import java.security.Key;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class Utilities {
 
@@ -45,12 +45,33 @@ public class Utilities {
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.DECRYPT_MODE, aesKey);
             decrypted = new String(cipher.doFinal(encrypted));
-            }
+        }
         catch(Exception e)
         {
             e.printStackTrace();
         }
         return decrypted;
+    }
+
+    public static ArrayList<Interest> getListOfAllInterests() {
+        ArrayList<Interest> list = new ArrayList<Interest>();
+        Interest interest001 = new Interest("ΗΛΙΚΙΩΜΕΝΟΙ", "SENIOR CITIZENS", "Ηλικιωμένοι", "Senior Citizens");
+        Interest interest002 = new Interest("ΠΑΙΔΙΑ", "CHILDREN", "Παιδιά", "Children");
+        Interest interest003 = new Interest("ΑΜΕΑ", "PWDS", "ΑμεΑ", "PwDs");
+        Interest interest004 = new Interest("ΥΓΕΙΑ", "HEALTH", "Υγεία", "Health");
+        Interest interest005 = new Interest("ΠΕΡΙΒΑΛΛΟΝ", "ENVIRONMENT", "Περιβάλλον", "Environment");
+        Interest interest006 = new Interest("ΤΕΧΝΗ ΚΑΙ ΠΟΛΙΤΙΣΜΟΣ", "ART AND CULTURE", "Τέχνη και Πολιτισμός", "Children");
+        Interest interest007 = new Interest("ΕΚΠΑΙΔΕΥΣΗ", "EDUCATION", "Εκπαίδευση", "Education");
+        Interest interest008 = new Interest("ΖΩΑ", "ANIMALS", "Ζώα", "Animals");
+        list.add(interest001);
+        list.add(interest002);
+        list.add(interest003);
+        list.add(interest004);
+        list.add(interest005);
+        list.add(interest006);
+        list.add(interest007);
+        list.add(interest008);
+        return list;
     }
 
     public static ArrayList<Area> getListOfAllAreas()
