@@ -134,7 +134,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
             if(dto.getKnowledgeAreasList() != null && !dto.getKnowledgeAreasList().isEmpty())
             {
                 for (KnowledgeAreaDTO temp : dto.getKnowledgeAreasList()) {
-                    entity.getKnowledgeAreasList().add(KnowledgeAreaDAOImplementation.findKnowledgeAreaById(temp.getDatabaseId()));
+                    entity.getKnowledgeAreasList().add(KnowledgeAreaDAOImplementation.findKnowledgeAreaById(temp.getDatabaseID()));
                 }
             }
             entity.setOtherKnowledge(dto.getOtherKnowledge());
@@ -214,7 +214,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
         if(dto.getKnowledgeAreasList() != null && !dto.getKnowledgeAreasList().isEmpty())
         {
             for (KnowledgeAreaDTO temp : dto.getKnowledgeAreasList()) {
-                entity.getKnowledgeAreasList().add(KnowledgeAreaDAOImplementation.findKnowledgeAreaById(temp.getDatabaseId()));
+                entity.getKnowledgeAreasList().add(KnowledgeAreaDAOImplementation.findKnowledgeAreaById(temp.getDatabaseID()));
             }
         }
         entity.setOtherKnowledge(dto.getOtherKnowledge());

@@ -3,6 +3,7 @@ package com.dao;
 
 import com.database.Area;
 import com.database.Interest;
+import com.database.KnowledgeArea;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -60,7 +61,7 @@ public class Utilities {
         Interest interest003 = new Interest("ΑΜΕΑ", "PWDS", "ΑμεΑ", "PwDs");
         Interest interest004 = new Interest("ΥΓΕΙΑ", "HEALTH", "Υγεία", "Health");
         Interest interest005 = new Interest("ΠΕΡΙΒΑΛΛΟΝ", "ENVIRONMENT", "Περιβάλλον", "Environment");
-        Interest interest006 = new Interest("ΤΕΧΝΗ ΚΑΙ ΠΟΛΙΤΙΣΜΟΣ", "ART AND CULTURE", "Τέχνη και Πολιτισμός", "Children");
+        Interest interest006 = new Interest("ΤΕΧΝΗ ΚΑΙ ΠΟΛΙΤΙΣΜΟΣ", "ART AND CULTURE", "Τέχνη και Πολιτισμός", "Art and Culture");
         Interest interest007 = new Interest("ΕΚΠΑΙΔΕΥΣΗ", "EDUCATION", "Εκπαίδευση", "Education");
         Interest interest008 = new Interest("ΖΩΑ", "ANIMALS", "Ζώα", "Animals");
         list.add(interest001);
@@ -71,6 +72,41 @@ public class Utilities {
         list.add(interest006);
         list.add(interest007);
         list.add(interest008);
+        return list;
+    }
+
+    public static ArrayList<KnowledgeArea> getListOfAllKnowledgeAreas() {
+        ArrayList<KnowledgeArea> list = new ArrayList<KnowledgeArea>();
+        KnowledgeArea knowledgeArea001 = new KnowledgeArea("ΔΙΟΙΚΗΤΙΚΗ ΥΠΟΣΤΗΡΙΞΗ", "ADMINISTRATIVE ASSISTANCE", "Διοικητική Υποστήριξη", "Administrative Assistance");
+        KnowledgeArea knowledgeArea002 = new KnowledgeArea("ΥΠΟΛΟΓΙΣΤΕΣ", "INFORMATICS", "Υπολογιστές", "Informatics");
+        KnowledgeArea knowledgeArea003 = new KnowledgeArea("ΕΠΙΚΟΙΝΩΝΙΑ ΚΑΙ ΜΑΡΚΕΤΙΝΓΚ", "COMMUNICATION AND MARKETING", "Επικοινωνία και Μάργκετινγκ", "Communication and Marketing");
+        KnowledgeArea knowledgeArea004 = new KnowledgeArea("ΜΑΓΕΙΡΙΚΗ", "COOKING", "Μαγειρική", "Cooking");
+        KnowledgeArea knowledgeArea005 = new KnowledgeArea("ΙΑΤΡΙΚΗ", "MEDICINE", "Ιατρική", "Medicine");
+        KnowledgeArea knowledgeArea006 = new KnowledgeArea("ΑΘΛΗΤΙΣΜΟΣ", "SPORTS", "Αθλητισμός", "Sports");
+        KnowledgeArea knowledgeArea007 = new KnowledgeArea("ΝΟΜΙΚΑ", "LAW", "Νομικά", "Law");
+        KnowledgeArea knowledgeArea008 = new KnowledgeArea("ΜΕΤΑΦΡΑΣΗ", "TRANSLATION", "Μετάφραση", "Translation");
+        KnowledgeArea knowledgeArea009 = new KnowledgeArea("ΜΑΝΑΤΖΜΕΝΤ", "MANAGEMENT", "Μάνατζμεντ", "Management");
+        KnowledgeArea knowledgeArea010 = new KnowledgeArea("ΘΕΤΙΚΕΣ ΕΠΙΣΤΗΜΕΣ", "PHYSICAL SCIENCES", "Θετικές Επιστήμες", "Physical Sciences");
+        KnowledgeArea knowledgeArea011 = new KnowledgeArea("ΔΙΟΙΚΗΣΗ ΑΝΘΡΩΠΙΝΩΝ ΠΟΡΩΝ", "HUMAN RESOURCES", "Διοίκηση Ανθρωπίνων Πόρων", "Human Resources");
+        KnowledgeArea knowledgeArea012 = new KnowledgeArea("ΠΑΙΔΑΓΩΓΙΚΑ", "EDUCATION", "Παιδαγωγικά", "Education");
+        KnowledgeArea knowledgeArea013 = new KnowledgeArea("ΦΩΤΟΓΡΑΦΙΑ", "PHOTOGRAPHY", "Φωτογραφία", "Photography");
+        KnowledgeArea knowledgeArea014 = new KnowledgeArea("ΓΡΑΦΙΣΤΙΚΗ", "GRAPHIC ARTS", "Γραφιστική", "Graphic Arts");
+        KnowledgeArea knowledgeArea015 = new KnowledgeArea("ΔΙΟΡΓΑΝΩΣΗ ΕΚΔΗΛΩΣΕΩΝ", "EVENT MANAGEMENT", "Διοργάνωση Εκδηλώσεων", "Event Management");
+        list.add(knowledgeArea001);
+        list.add(knowledgeArea002);
+        list.add(knowledgeArea003);
+        list.add(knowledgeArea004);
+        list.add(knowledgeArea005);
+        list.add(knowledgeArea006);
+        list.add(knowledgeArea007);
+        list.add(knowledgeArea008);
+        list.add(knowledgeArea009);
+        list.add(knowledgeArea010);
+        list.add(knowledgeArea011);
+        list.add(knowledgeArea012);
+        list.add(knowledgeArea013);
+        list.add(knowledgeArea014);
+        list.add(knowledgeArea015);
         return list;
     }
 
