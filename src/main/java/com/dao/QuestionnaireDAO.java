@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.database.Questionnaire;
 import com.dto.QuestionnaireDTO;
 
 public interface QuestionnaireDAO {

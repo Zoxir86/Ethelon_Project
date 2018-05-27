@@ -44,7 +44,7 @@ public class OpportApplicTest {
         em.getTransaction().commit();
 
         OpportunityDTO oppDTO = new OpportunityDTO();
-        oppDTO.setDatabaseId(2);         // Normally we do not set this, but in the example we want to avoid searching.
+        oppDTO.setDatabaseID(2);         // Normally we do not set this, but in the example we want to avoid searching.
 
         ApplicationDTO appDTO = new ApplicationDTO();
         appDTO.setAvailability("Weekends, twice a month.");

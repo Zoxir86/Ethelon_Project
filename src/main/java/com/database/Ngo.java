@@ -2,12 +2,13 @@ package com.database;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name="Ngo")
 @DiscriminatorValue("3")
 public class Ngo extends User {
 
-    @Column(name="Name")
+    @Column(name="OrganizationName")
     private String organizationName = null;
 
     @Column(name="WebPage")
@@ -48,6 +49,9 @@ public class Ngo extends User {
 
     @Column(name="logoID")
     private String logoId = null;
+
+    @OneToMany( targetEntity=Opportunity.class )
+    private List<Opportunity> opportunitiesList;
 
     @Column(name="LastOpportunityUpload")
     private String lastOpportunityUpload = null;
@@ -170,6 +174,14 @@ public class Ngo extends User {
 
     public void setLastOpportunityUpload(String lastOpportunityUpload) {
         this.lastOpportunityUpload = lastOpportunityUpload;
+    }
+
+    public List<Opportunity> getOpportunitiesList() {
+        return opportunitiesList;
+    }
+
+    public void setOpportunitiesList(List<Opportunity> opportunitiesList) {
+        this.opportunitiesList = opportunitiesList;
     }
 }
 

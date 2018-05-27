@@ -337,4 +337,30 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
         return entity;
     }
 
+
+    /******************************************************************************************************************
+     Utility: Returns a Questionnaire entity as persisted in the database when the databaseID is known.
+     *****************************************************************************************************************/
+
+    public static Questionnaire findQuestionnaireById(int databaseID)
+    {
+        if(databaseID == 0) return null;
+
+        Questionnaire entity;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try {
+            entity = em.find( Questionnaire.class, databaseID );
+        } catch(Exception e) {
+            entity = null;
+        }
+        finally {
+            em.close();
+            factory.close();
+        }
+
+        return entity;
+    }
+
 } // End of QuestionnaireDAOImplementation class.
