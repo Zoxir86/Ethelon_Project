@@ -17,7 +17,6 @@ public class InterestDAOImplementation implements InterestDAO {
 
     private static final String PERSISTENCE_UNIT_NAME = "Ethelon";
 
-
     /********************************************************************************************************************
      Returns the full list of Interests. Returns null if nothing is found.
      *******************************************************************************************************************/

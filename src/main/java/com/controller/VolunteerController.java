@@ -4,13 +4,15 @@ package com.controller;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-
-import com.dao.VolunteerDAO;
+import com.dao.*;
+import com.dto.InterestDTO;
+import com.dto.KnowledgeAreaDTO;
 import com.dto.VolunteerDTO;
-import com.dao.VolunteerDAOImplementation;
 
 @ManagedBean (name = "volcontr")
 @SessionScoped
@@ -22,14 +24,55 @@ public class VolunteerController {
 	//public String gender;
 	//public String occupation;
 	//public String[] interests;
+    private InterestDAO interest = new InterestDAOImplementation();
+	private List<InterestDTO> interestList = new ArrayList<InterestDTO>();
+	public List<InterestDTO> userInterestList = new ArrayList<InterestDTO>();
+	private KnowledgeAreaDAO knowledge = new KnowledgeAreaDAOImplementation();
+	private List<KnowledgeAreaDTO> knowledgeList = new ArrayList<KnowledgeAreaDTO>();
+	public List<KnowledgeAreaDTO> userKnowledgeList = new ArrayList<KnowledgeAreaDTO>();
+
+	public String[] favNumber4;
+
 
 	public VolunteerDTO getVolunteerDto() {
 		return volunteerDto;
 	}
 
 	public String setVolunteerDto() {
+		//this.volunteerDto.setInterestsList(this.userInterestList);
+
 		volunteerDao.insertVolunteer(this.volunteerDto);
 		return "success.xhtml";
+	}
+
+
+	public List<InterestDTO> getInterestList() {
+	    interestList = interest.getFullListOfInterests();
+
+		return interestList;
+	}
+
+	public List<InterestDTO> getUserInterestList(){
+		return new InterestDAOImplementation().getFullListOfInterests();
+	}
+
+	public void setUserInterestList(List<InterestDTO> userInterestList){
+		this.userInterestList = userInterestList;
+	}
+
+
+	public List<KnowledgeAreaDTO> getKnowledgeList() {
+		knowledgeList = knowledge.getFullListOfKnowledgeAreas();
+
+		return knowledgeList;
+	}
+
+	public List<KnowledgeAreaDTO> getUserKnowledgeList(){
+		return new KnowledgeAreaDAOImplementation().getFullListOfKnowledgeAreas();
+	}
+
+	public void setUserKnowledgeList(List<KnowledgeAreaDTO> userKnowledgeList){
+		this.userKnowledgeList = userKnowledgeList;
 	}
 
 	/*public String getGender()

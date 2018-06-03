@@ -37,8 +37,8 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
             em.getTransaction().begin();
             Volunteer entity = transformVolunteerDTO2Entity(dto);
             entity.setEthelonVolunteerYN(false);
-            entity.setApplicationsList(new ArrayList<Application>());
-            entity.setPendingApplicationsList(new ArrayList<Application>());
+            //entity.setApplicationsList(new ArrayList<Application>());
+            //entity.setPendingApplicationsList(new ArrayList<Application>());
             entity.setInterestsList(new ArrayList<Interest>());
             entity.setKnowledgeAreasList(new ArrayList<KnowledgeArea>());
             entity.setAccountCreated(Utilities.ft.format(new Date()));
