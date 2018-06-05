@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component LANGUAGE_LEVEL="JDK_1_5" inheritJdk="true">
+<component LANGUAGE_LEVEL="JDK_1_8" inheritJdk="true">
 	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
 	<contentEntry url="file://$MODULE_DIR$">
 		<excludeFolder url="file://$MODULE_DIR$/target"/>
 	</contentEntry>
+	<lib name="GlassFish 4.1.2 - JMS: Java Message Service" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - Bean Validation" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - RESTful Web Service" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - JSON Processing (JSR 353)" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - CDI: Contexts and Dependency Injection" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - Batch Applications" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - Concurrency Utils (JSR 236)" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - JSF" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - Transaction API (JSR 907)" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - EJB" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - Connector Architecture (JSR 322)" scope="PROVIDED"/>
+	<lib name="GlassFish 4.1.2 - WebSocket" scope="PROVIDED"/>
 	<lib name="Maven: junit:junit:3.8.1" scope="TEST"/>
 	<lib name="Maven: javax.faces:jsf-api:2.1" scope="PROVIDED"/>
 	<levels>
 		<level name="ejb-3.2" value="project"/>
 		<level name="JPA 2.0-2.0" value="project"/>
+		<level name="GlassFish 4.1.2 - JMS: Java Message Service" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - Bean Validation" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - RESTful Web Service" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - JSON Processing (JSR 353)" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - CDI: Contexts and Dependency Injection" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - Batch Applications" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - Concurrency Utils (JSR 236)" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - JSF" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - Transaction API (JSR 907)" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - EJB" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - Connector Architecture (JSR 322)" value="application_server_libraries"/>
+		<level name="GlassFish 4.1.2 - WebSocket" value="application_server_libraries"/>
 		<level name="Maven: junit:junit:3.8.1" value="project"/>
 		<level name="Maven: org.xerial:sqlite-jdbc:3.21.0.1" value="project"/>
 		<level name="Maven: org.eclipse.persistence:eclipselink:2.7.0" value="project"/>
@@ -17,5 +41,6 @@
 		<level name="Maven: javax.validation:validation-api:1.1.0.Final" value="project"/>
 		<level name="Maven: org.glassfish:javax.json:1.0.4" value="project"/>
 		<level name="Maven: javax.faces:jsf-api:2.1" value="project"/>
+		<level name="Maven: org.mindrot:jbcrypt:0.3m" value="project"/>
 	</levels>
 </component>
