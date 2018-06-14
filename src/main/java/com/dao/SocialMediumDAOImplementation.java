@@ -228,7 +228,7 @@ public class SocialMediumDAOImplementation implements SocialMediumDAO {
      Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
      *****************************************************************************************************************/
 
-    private static SocialMediumDTO transformSocialMediumEntity2DTO(SocialMedium entity) {
+    public static SocialMediumDTO transformSocialMediumEntity2DTO(SocialMedium entity) {
 
         SocialMediumDTO dto = new SocialMediumDTO();
         dto.setDatabaseID(entity.getSocialMediumID());
@@ -252,7 +252,7 @@ public class SocialMediumDAOImplementation implements SocialMediumDAO {
      Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
      *****************************************************************************************************************/
 
-    private static SocialMedium transformSocialMediumDTO2Entity(SocialMediumDTO dto) {
+    public static SocialMedium transformSocialMediumDTO2Entity(SocialMediumDTO dto) {
 
         SocialMedium entity = new SocialMedium();
         entity.setSocialMediumID(dto.getDatabaseID());

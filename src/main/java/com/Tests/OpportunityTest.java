@@ -1,20 +1,12 @@
 package com.Tests;
 
-import com.dao.AreaDAOImplementation;
 import com.dao.InterestDAOImplementation;
 import com.dao.OpportunityDAOImplementation;
-import com.dao.Utilities;
 import com.database.Interest;
-import com.dto.AreaDTO;
 import com.dto.InterestDTO;
-import com.dto.NgoDTO;
 import com.dto.OpportunityDTO;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class OpportunityTest {
 
@@ -44,7 +36,7 @@ public class OpportunityTest {
         Interest i = InterestDAOImplementation.findInterestById(1352);
         InterestDTO idto = InterestDAOImplementation.transformInterestEntity2DTO(i);
 
-        NgoDTO n1 = new NgoDTO("UNICEF", "", "", "", "", "", "", "", "", "", "", "", "", "", null, 0, "", "", "", "", null, null);
+        /*NgoDTO n1 = new NgoDTO("UNICEF", "", "", "", "", "", "", "", "", "", "", "", "", "", null, 0, "", "", "", "", null, null);
 
         AreaDAOImplementation daoImp = new AreaDAOImplementation();
         AreaDTO area1 = daoImp.getAreaRelatedToAPostalCode("181 21");
@@ -60,6 +52,6 @@ public class OpportunityTest {
         OpportunityDAOImplementation kkk = new OpportunityDAOImplementation();
         boolean ll = kkk.insertOpportunity(op);
 
-        int k = 0;
+        int k = 0;*/
     }
 }

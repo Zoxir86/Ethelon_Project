@@ -38,7 +38,10 @@ public class VolunteerDTO {
         super();
     }
 
-    public VolunteerDTO(String name, String surname, Date dateOfBirth, String sex, boolean isVolunteerYN, boolean isEthelonVolunteerYN, Date appliedLast, AreaDTO area, List<ApplicationDTO> applicationsList, List<ApplicationDTO> pendingApplicationsList, List<InterestDTO> interestsList, List<KnowledgeAreaDTO> knowledgeAreasList, String otherKnowledge, int databaseID, String username, String password, String telephone, String email, Date loggedInLast, Date accountCreated, Date accountUpdated) {
+    public VolunteerDTO(String name, String surname, Date dateOfBirth, String sex, boolean isVolunteerYN, boolean isEthelonVolunteerYN,
+                        Date appliedLast, AreaDTO area, List<ApplicationDTO> applicationsList, List<ApplicationDTO> pendingApplicationsList,
+                        List<InterestDTO> interestsList, List<KnowledgeAreaDTO> knowledgeAreasList, String otherKnowledge, int databaseID,
+                        String username, String password, String telephone, String email, Date loggedInLast, Date accountCreated, Date accountUpdated) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
@@ -61,6 +64,7 @@ public class VolunteerDTO {
         this.accountCreated = accountCreated;
         this.accountUpdated = accountUpdated;
     }
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public String getName() {

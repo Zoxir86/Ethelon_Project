@@ -1,43 +1,49 @@
 package com.dto;
 
-import org.mindrot.jbcrypt.BCrypt;
-
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class NgoDTO {
 
-    private String organizationName = null;
-    private String webpage = null;
-    private String address = null;
-    private String streetNo = null;
-    private String postalCode = null;
-    private String city = null;
-    private String country=null;
-    private String contactPerson = null;
-    private String descGreek = null;
-    private String descEnglish = null;
-    private String socialMedium1 = null;
-    private String socialMedium2 = null;
-    private String socialMedium3 = null;
-    private String logoId;
-    private Date lastOpportunityUpload = null;
-    private int userID;
-    private int databaseID;
-    private String username = null;
-    private String password = null;
-    private String telephone = null;
-    private String email = null;
-    private Date loggedInLast = null;
-    private Date accountCreated = null;
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ As NGO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    private String organizationName = null;							// The organization's official name.
+    private String webpage = null;									// Official webpage for the organization.
+    private String address = null;									// The organization's postal address (street).
+    private String streetNo = null;									// The organization's postal address (number).
+    private String postalCode = null;								// The organization's postal address (postal code).
+    private String city = null;										// The organization's postal address (city).
+    private String country = null;									// The organization's postal address (country).
+    private String contactPerson = null;                        	// A contact person for communication between Ethelon and the NGO.
+    private String descGreek = null;								// A brief description for the organization in Greek.
+    private String descEnglish = null;								// A brief description for the organization in English.
+    private String logoId = null;									// The path towards the stored logo image.
+    private String status;											// Ngo must be approved by Ethelon to post opportunities. Receives values from enum class ApplicationState.
+    private boolean isHiddenYN;										// Indicates whether the organization's application currently appear on website.
+    private Date lastOpportunityUpload = null;					    // The date when the latest opportunity has been uploaded by the organization.
+    private List<OpportunityDTO> opportunitiesList;					// A list of Opportunities uploaded by the organization.
+    private List<SocialMediumDTO> socialMediaList;					// A list of available social media addresses.
 
-    public NgoDTO(){
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ As User ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    private int databaseID;                                         // A unique database identification number.
+    private String username = null;                                 // A unique string identifier for the user. Part of the credentials.
+    private String password = null;                                 // A unique string identifier for the user. Part of the credentials.
+    private String telephone = null;                                // A user's telephone number.
+    private String email = null;                                    // A user's e-mail address.
+    private Date loggedInLast = null;                               // Latest date of log-in.
+    private Date accountCreated = null;                             // The date on which the user account has been created.
+    private Date accountUpdated = null;                             // The date on which the user account has last been updated.
 
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public NgoDTO( ) {
+        super();
     }
 
-    public NgoDTO(String organizationName, String webpage, String address, String streetNo, String postalCode,
-                  String city, String country, String contactPerson, String descGreek, String descEnglish, String socialMedium1,
-                  String socialMedium2, String socialMedium3, String logoId, Date lastOpportunityUpload, int databaseID,
-                  String username,String password, String telephone, String email, Date loggedInLast, Date accountCreated) {
+    public NgoDTO(String organizationName, String webpage, String address, String streetNo, String postalCode, String city, String country,
+                  String contactPerson, String descGreek, String descEnglish, String logoId, String status, boolean isHiddenYN, Date lastOpportunityUpload,
+                  List<OpportunityDTO> opportunitiesList, List<SocialMediumDTO> socialMediaList, int databaseID, String username, String password, String telephone,
+                  String email, Date loggedInLast, Date accountCreated, Date accountUpdated) {
         this.organizationName = organizationName;
         this.webpage = webpage;
         this.address = address;
@@ -48,19 +54,24 @@ public class NgoDTO {
         this.contactPerson = contactPerson;
         this.descGreek = descGreek;
         this.descEnglish = descEnglish;
-        this.socialMedium1 = socialMedium1;
-        this.socialMedium2 = socialMedium2;
-        this.socialMedium3 = socialMedium3;
         this.logoId = logoId;
+        this.status = status;
+        this.isHiddenYN = isHiddenYN;
         this.lastOpportunityUpload = lastOpportunityUpload;
+        this.opportunitiesList = opportunitiesList;
+        this.socialMediaList = socialMediaList;
+        this.databaseID = databaseID;
         this.username = username;
         this.password = password;
         this.telephone = telephone;
         this.email = email;
         this.loggedInLast = loggedInLast;
         this.accountCreated = accountCreated;
-        this.databaseID = databaseID;
+        this.accountUpdated = accountUpdated;
     }
+
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     public String getOrganizationName() {
         return organizationName;
@@ -118,7 +129,6 @@ public class NgoDTO {
         this.country = country;
     }
 
-
     public String getContactPerson() {
         return contactPerson;
     }
@@ -134,37 +144,13 @@ public class NgoDTO {
     public void setDescGreek(String descGreek) {
         this.descGreek = descGreek;
     }
+
     public String getDescEnglish() {
         return descEnglish;
     }
 
     public void setDescEnglish(String descEnglish) {
         this.descEnglish = descEnglish;
-    }
-
-
-    public String getSocialMedium1() {
-        return socialMedium1;
-    }
-
-    public void setSocialMedium1(String socialMedium1) {
-        this.socialMedium1 = socialMedium1;
-    }
-
-    public String getSocialMedium2() {
-        return socialMedium2;
-    }
-
-    public void setSocialMedium2(String socialMedium2) {
-        this.socialMedium2 = socialMedium2;
-    }
-
-    public String getSocialMedium3() {
-        return socialMedium3;
-    }
-
-    public void setSocialMedium3(String socialMedium3) {
-        this.socialMedium3 = socialMedium3;
     }
 
     public String getLogoId() {
@@ -175,12 +161,54 @@ public class NgoDTO {
         this.logoId = logoId;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public boolean isHiddenYN() {
+        return isHiddenYN;
+    }
+
+    public void setHiddenYN(boolean hiddenYN) {
+        isHiddenYN = hiddenYN;
+    }
+
     public Date getLastOpportunityUpload() {
         return lastOpportunityUpload;
     }
 
     public void setLastOpportunityUpload(Date lastOpportunityUpload) {
         this.lastOpportunityUpload = lastOpportunityUpload;
+    }
+
+    public List<OpportunityDTO> getOpportunitiesList() {
+        return opportunitiesList;
+    }
+
+    public void setOpportunitiesList(List<OpportunityDTO> opportunitiesList) {
+        if (opportunitiesList == null) opportunitiesList = new ArrayList<OpportunityDTO>();
+        this.opportunitiesList = opportunitiesList;
+    }
+
+    public List<SocialMediumDTO> getSocialMediaList() {
+        return socialMediaList;
+    }
+
+    public void setSocialMediaList(List<SocialMediumDTO> socialMediaList) {
+        if (socialMediaList == null) socialMediaList = new ArrayList<SocialMediumDTO>();
+        this.socialMediaList = socialMediaList;
+    }
+
+    public int getDatabaseID() {
+        return databaseID;
+    }
+
+    public void setDatabaseID(int databaseID) {
+        this.databaseID = databaseID;
     }
 
     public String getUsername() {
@@ -196,7 +224,7 @@ public class NgoDTO {
     }
 
     public void setPassword(String password) {
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = password;
     }
 
     public String getTelephone() {
@@ -231,11 +259,11 @@ public class NgoDTO {
         this.accountCreated = accountCreated;
     }
 
-    public int getDatabaseID() {
-        return databaseID;
+    public Date getAccountUpdated() {
+        return accountUpdated;
     }
 
-    public void setDatabaseID(int databaseID) {
-        this.databaseID = databaseID;
+    public void setAccountUpdated(Date accountUpdated) {
+        this.accountUpdated = accountUpdated;
     }
 }
