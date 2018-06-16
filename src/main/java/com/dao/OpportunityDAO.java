@@ -11,4 +11,10 @@ public interface OpportunityDAO {
 
     // Returns the full list of Opportunities. Returns null if nothing is found.
     public ArrayList<OpportunityDTO> getFullListOfOpportunities();
+
+    // Returns the list of open Opportunities.
+
+    // Closes an opportunity so applications may no longer be submitted.
+
+    // Hides an opportunity from the website.
 }

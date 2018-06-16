@@ -8,7 +8,7 @@ public class QuestionDTO {
     private String textGreek;              // The question's text in Greek.
 
 
-    /**************************************  Constructors   ***********************************************/
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public QuestionDTO ( ) {
         super();
     }
@@ -20,7 +20,7 @@ public class QuestionDTO {
         this.textGreek = textGreek;
     }
 
-    /***************************************   Getters and Setters   ***************************************/
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public int getDatabaseId() {
         return databaseId;
     }
@@ -52,4 +52,5 @@ public class QuestionDTO {
     public void setTextGreek(String textGreek) {
         this.textGreek = textGreek;
     }
+
 } // End of QuestionDTO class.

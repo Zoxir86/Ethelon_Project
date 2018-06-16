@@ -17,6 +17,8 @@
         <class>com.database.SocialMedium</class>
         <class>com.database.Interest</class>
         <class>com.database.KnowledgeArea</class>
+        <class>com.database.Answer</class>
+        <class>com.database.AnsweredQuestionnaire</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
             <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:ethelon.db" />

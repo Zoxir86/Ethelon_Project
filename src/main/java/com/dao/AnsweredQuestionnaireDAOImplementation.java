@@ -1,18 +1,19 @@
 package com.dao;
 
-import com.database.Question;
-import com.database.Questionnaire;
-import com.dto.QuestionDTO;
-import com.dto.QuestionnaireDTO;
+import com.database.Answer;
+import com.database.AnsweredQuestionnaire;
+import com.dto.AnswerDTO;
+import com.dto.AnsweredQuestionnaireDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
+public class AnsweredQuestionnaireDAOImplementation implements AnsweredQuestionnaireDAO {
 
     private static final boolean SUCCESS = true;
     private static final boolean ERROR = false;
@@ -20,7 +21,7 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
     private static final String PERSISTENCE_UNIT_NAME = "Ethelon";
 
 
-    public QuestionnaireDAOImplementation() {
+    public AnsweredQuestionnaireDAOImplementation() {
         super();
     }
 
@@ -30,10 +31,10 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
     //*****************************************************************************************************************
 
     /********************************************************************************************************************
-     Inserts a new Question entity in the database.
+     Inserts a new Answer entity in the database.
      *******************************************************************************************************************/
 
-    private boolean insertQuestion(Question entity) {
+    private boolean insertAnswer(Answer entity) {
 
         boolean result;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -59,10 +60,10 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
 
 
     /********************************************************************************************************************
-     Inserts a new Questionnaire entity in the database. Uses a DTO as input.
+     Inserts a new AnsweredQuestionnaire entity in the database. Uses a DTO as input.
      *******************************************************************************************************************/
 
-    public boolean insertQuestionnaire(QuestionnaireDTO questionnaire) {
+    public boolean insertAnsweredQuestionnaire(AnsweredQuestionnaireDTO dto) {
 
         boolean result;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -70,12 +71,12 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
 
         try {
             em.getTransaction().begin();
-            Questionnaire entity = transformQuestionnaireDTO2Entity(questionnaire);
+            AnsweredQuestionnaire entity = transformAnsweredQuestionnaireDTO2Entity(dto);
             entity.setInsertDate(Utilities.ft.format(new Date()));
             entity.setUpdateDate(Utilities.ft.format(new Date()));
 
-            for (Question question : entity.getQuestionList()) {
-                insertQuestion(question);
+            for (Answer answer : entity.getAnswersList()) {
+                insertAnswer(answer);
             }
 
             em.persist(entity);
@@ -99,19 +100,19 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
     //*****************************************************************************************************************
 
     /********************************************************************************************************************
-     Deletes an existing Question entity in the database. Uses a DTO as input.
+     Deletes an existing Answer entity in the database. Uses a DTO as input.
      *******************************************************************************************************************/
 
-    private boolean deleteQuestion(Question question) {
+    private boolean deleteAnswer(Answer answer) {
 
-        if(question.getQuestionId() == 0) return false;
+        if(answer.getAnswerId() == 0) return false;
 
         boolean result;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
         try {
             em.getTransaction().begin();
-            Question entity = em.find( Question.class, question.getQuestionId() );
+            Answer entity = em.find( Answer.class, answer.getAnswerId() );
             em.remove(entity);
             em.getTransaction().commit();
             result = SUCCESS;
@@ -128,12 +129,12 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
 
 
     /********************************************************************************************************************
-     Deletes an existing Questionnaire entity in the database. Uses a DTO as input.
+     Deletes an existing AnsweredQuestionnaire entity in the database. Uses a DTO as input.
      *******************************************************************************************************************/
 
-    public boolean deleteQuestionnaire(QuestionnaireDTO questionnaire) {
+    public boolean deleteAnsweredQuestionnaire(AnsweredQuestionnaireDTO dto) {
 
-        if(questionnaire.getDatabaseId() == 0) return ERROR;
+        if(dto.getDatabaseId() == 0) return ERROR;
 
         boolean result;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -141,13 +142,13 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
 
         try {
             em.getTransaction().begin();
-            Questionnaire entity = transformQuestionnaireDTO2Entity(questionnaire);
+            AnsweredQuestionnaire entity = transformAnsweredQuestionnaireDTO2Entity(dto);
 
-            for (Question question : entity.getQuestionList()) {
-                deleteQuestion(question);
+            for (Answer answer : entity.getAnswersList()) {
+                deleteAnswer(answer);
             }
 
-            em.remove(em.find( Questionnaire.class, questionnaire.getDatabaseId() ));
+            em.remove(em.find( AnsweredQuestionnaire.class, dto.getDatabaseId() ));
             em.getTransaction().commit();
             result = SUCCESS;
         } catch(Exception e) {
@@ -168,44 +169,14 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
     //*****************************************************************************************************************
 
 
-    /********************************************************************************************************************
-     Updates an existing Question entity in the database. Uses a DTO as input.
+     /********************************************************************************************************************
+     Updates an existing AnsweredQuestionnaire entity in the database. Uses a DTO as input. It also manages
+      transactions so as to permit rollback on failures.
      *******************************************************************************************************************/
 
-    /*public boolean updateQuestion(Question question) {
+    public boolean updateAnsweredQuestionnaire(AnsweredQuestionnaireDTO dto) {
 
-        if(question.getQuestionId() == 0) return false;
-
-        boolean result;
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        EntityManager em = factory.createEntityManager();
-
-        try {
-            em.getTransaction().begin();
-            Question entity = em.find( Question.class, question.getQuestionId() );
-            entity.setUpdateDate(Utilities.ft.format(new Date()));
-            em.persist(entity);
-            em.getTransaction().commit();
-            result = SUCCESS;
-        } catch(Exception e) {
-            em.getTransaction().rollback();
-            result = ERROR;
-        }
-        finally {
-            em.close();
-            factory.close();
-        }
-        return result;
-    }*/
-
-    /********************************************************************************************************************
-     Updates an existing Questionnaire entity in the database. Uses a DTO as input. It also manages transactions so as to
-     permit rollback on failures.
-     *******************************************************************************************************************/
-
-    public boolean updateQuestionnaire(QuestionnaireDTO questionnaire) {
-
-        if(questionnaire.getDatabaseId() == 0) return ERROR;
+        if(dto.getDatabaseId() == 0) return ERROR;
 
         boolean result;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -214,21 +185,21 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
         try {
             em.getTransaction().begin();
 
-            Questionnaire existingEntity = em.find(Questionnaire.class, questionnaire.getDatabaseId());
+            AnsweredQuestionnaire existingEntity = em.find(AnsweredQuestionnaire.class, dto.getDatabaseId());
 
-            for (Question question : existingEntity.getQuestionList()) {   // Deleting old list questions.
-                 deleteQuestion(question);
+            for (Answer answer : existingEntity.getAnswersList()) {   // Deleting old list answers.
+                deleteAnswer(answer);
             }
 
-            Questionnaire entity = transformQuestionnaireDTO2Entity(questionnaire);
+            AnsweredQuestionnaire entity = transformAnsweredQuestionnaireDTO2Entity(dto);
 
-            List<Question> list = entity.getQuestionList();
+            List<Answer> list = entity.getAnswersList();
 
-            for (Question question : list) {                              // Assume all questions are new.
-                insertQuestion(question);
+            for (Answer answer : list) {                              // Assume all answers are new.
+                insertAnswer(answer);
             }
 
-            existingEntity.setQuestionList(list);
+            existingEntity.setAnswersList(list);
             existingEntity.setUpdateDate(Utilities.ft.format(new Date()));
 
             em.persist(existingEntity);
@@ -256,28 +227,35 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
      Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
      *****************************************************************************************************************/
 
-    public static QuestionDTO transformQuestionEntity2DTO(Question entity)
+    public static AnswerDTO transformAnswerEntity2DTO(Answer entity)
     {
-        QuestionDTO dto = new QuestionDTO();
-        dto.setDatabaseId(entity.getQuestionId());
+        AnswerDTO dto = new AnswerDTO();
+        dto.setDatabaseId(entity.getAnswerId());
         dto.setPosition(entity.getPosition());
-        dto.setTextEnglish(entity.getTextEnglish());
-        dto.setTextGreek(entity.getTextGreek());
+        dto.setAnswerText(entity.getAnswerText());
+
+        try {
+            dto.setInsertDate(Utilities.ft.parse(entity.getInsertDate()));
+            dto.setUpdateDate(Utilities.ft.parse(entity.getUpdateDate()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         return dto;
     }
 
 
     /******************************************************************************************************************
      Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
+     Note that insert and update dates are not update in the database this way.
      *****************************************************************************************************************/
 
-    public static Question transformQuestionDTO2Entity(QuestionDTO dto)
+    public static Answer transformAnswerDTO2Entity(AnswerDTO dto)
     {
-        Question entity = new Question();
-        entity.setQuestionId(dto.getDatabaseId());
+        Answer entity = new Answer();
+        entity.setAnswerId(dto.getDatabaseId());
         entity.setPosition(dto.getPosition());
-        entity.setTextEnglish(dto.getTextEnglish());
-        entity.setTextGreek(dto.getTextGreek());
+        entity.setAnswerText(dto.getAnswerText());
         return entity;
     }
 
@@ -286,11 +264,11 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
      Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
      *****************************************************************************************************************/
 
-    public static List<QuestionDTO> transformQuestionListEntity2DTO(List<Question> entityList)
+    public static List<AnswerDTO> transformAnswerListEntity2DTO(List<Answer> entityList)
     {
-        List<QuestionDTO> dtoList = new ArrayList<QuestionDTO>();
-        for (Question entityQuestion : entityList) {
-            dtoList.add(transformQuestionEntity2DTO(entityQuestion));
+        List<AnswerDTO> dtoList = new ArrayList<AnswerDTO>();
+        for (Answer entityAnswer : entityList) {
+            dtoList.add(transformAnswerEntity2DTO(entityAnswer));
         }
         return dtoList;
     }
@@ -300,11 +278,11 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
      Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
      *****************************************************************************************************************/
 
-    public static List<Question> transformQuestionListDTO2Entity(List<QuestionDTO> dtoList)
+    public static List<Answer> transformAnswerListDTO2Entity(List<AnswerDTO> dtoList)
     {
-        List<Question> entityList = new ArrayList<Question>();
-        for (QuestionDTO dtoQuestion : dtoList) {
-            entityList.add(transformQuestionDTO2Entity(dtoQuestion));
+        List<Answer> entityList = new ArrayList<Answer>();
+        for (AnswerDTO dtoAnswer : dtoList) {
+            entityList.add(transformAnswerDTO2Entity(dtoAnswer));
         }
         return entityList;
     }
@@ -314,12 +292,12 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
      Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
      *****************************************************************************************************************/
 
-    public static QuestionnaireDTO transformQuestionnaireEntity2DTO(Questionnaire entity) {
+    public static AnsweredQuestionnaireDTO transformAnsweredQuestionnaireEntity2DTO(AnsweredQuestionnaire entity) {
 
-        QuestionnaireDTO dto = new QuestionnaireDTO();
-        dto.setDatabaseId(entity.getQuestionnaireId());
-        List<QuestionDTO> dtoList = transformQuestionListEntity2DTO(entity.getQuestionList());
-        dto.setQuestionList(dtoList);
+        AnsweredQuestionnaireDTO dto = new AnsweredQuestionnaireDTO();
+        dto.setDatabaseId(entity.getAnsweredQuestionnaireId());
+        List<AnswerDTO> dtoList = transformAnswerListEntity2DTO(entity.getAnswersList());
+        dto.setAnswersList(dtoList);
         return dto;
     }
 
@@ -328,30 +306,30 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
      Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
      *****************************************************************************************************************/
 
-    public static Questionnaire transformQuestionnaireDTO2Entity(QuestionnaireDTO dto) {
+    public static AnsweredQuestionnaire transformAnsweredQuestionnaireDTO2Entity(AnsweredQuestionnaireDTO dto) {
 
-        Questionnaire entity = new Questionnaire();
-        entity.setQuestionnaireId(dto.getDatabaseId());
-        List<Question> entityList = transformQuestionListDTO2Entity(dto.getQuestionList());
-        entity.setQuestionList(entityList);
+        AnsweredQuestionnaire entity = new AnsweredQuestionnaire();
+        entity.setAnsweredQuestionnaireId(dto.getDatabaseId());
+        List<Answer> entityList = transformAnswerListDTO2Entity(dto.getAnswersList());
+        entity.setAnswersList(entityList);
         return entity;
     }
 
 
     /******************************************************************************************************************
-     Utility: Returns a Questionnaire entity as persisted in the database when the databaseID is known.
+     Utility: Returns an AnsweredQuestionnaire entity as persisted in the database when the databaseID is known.
      *****************************************************************************************************************/
 
-    public static Questionnaire findQuestionnaireById(int databaseID)
+    public static AnsweredQuestionnaire findAnsweredQuestionnaireById(int databaseID)
     {
         if(databaseID == 0) return null;
 
-        Questionnaire entity;
+        AnsweredQuestionnaire entity;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
 
         try {
-            entity = em.find( Questionnaire.class, databaseID );
+            entity = em.find( AnsweredQuestionnaire.class, databaseID );
         } catch(Exception e) {
             entity = null;
         }
@@ -363,4 +341,4 @@ public class QuestionnaireDAOImplementation implements QuestionnaireDAO {
         return entity;
     }
 
-} // End of QuestionnaireDAOImplementation class.
+} // End of AnsweredQuestionnaireDAOImplementation class.
