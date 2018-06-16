@@ -2,6 +2,7 @@ package com.dao;
 
 import com.database.Answer;
 import com.database.AnsweredQuestionnaire;
+import com.database.Questionnaire;
 import com.dto.AnswerDTO;
 import com.dto.AnsweredQuestionnaireDTO;
 
@@ -169,9 +170,9 @@ public class AnsweredQuestionnaireDAOImplementation implements AnsweredQuestionn
     //*****************************************************************************************************************
 
 
-     /********************************************************************************************************************
+    /********************************************************************************************************************
      Updates an existing AnsweredQuestionnaire entity in the database. Uses a DTO as input. It also manages
-      transactions so as to permit rollback on failures.
+     transactions so as to permit rollback on failures.
      *******************************************************************************************************************/
 
     public boolean updateAnsweredQuestionnaire(AnsweredQuestionnaireDTO dto) {
@@ -235,8 +236,8 @@ public class AnsweredQuestionnaireDAOImplementation implements AnsweredQuestionn
         dto.setAnswerText(entity.getAnswerText());
 
         try {
-            dto.setInsertDate(Utilities.ft.parse(entity.getInsertDate()));
-            dto.setUpdateDate(Utilities.ft.parse(entity.getUpdateDate()));
+            if(dto.getInsertDate() != null) dto.setInsertDate(Utilities.ft.parse(entity.getInsertDate()));
+            if(dto.getUpdateDate() != null) dto.setUpdateDate(Utilities.ft.parse(entity.getUpdateDate()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -296,8 +297,10 @@ public class AnsweredQuestionnaireDAOImplementation implements AnsweredQuestionn
 
         AnsweredQuestionnaireDTO dto = new AnsweredQuestionnaireDTO();
         dto.setDatabaseId(entity.getAnsweredQuestionnaireId());
-        List<AnswerDTO> dtoList = transformAnswerListEntity2DTO(entity.getAnswersList());
-        dto.setAnswersList(dtoList);
+        if(entity.getAnswersList() != null) {
+            List<AnswerDTO> dtoList = transformAnswerListEntity2DTO(entity.getAnswersList());
+            dto.setAnswersList(dtoList);
+        } else dto.setAnswersList(new ArrayList<AnswerDTO>());
         return dto;
     }
 
@@ -310,8 +313,14 @@ public class AnsweredQuestionnaireDAOImplementation implements AnsweredQuestionn
 
         AnsweredQuestionnaire entity = new AnsweredQuestionnaire();
         entity.setAnsweredQuestionnaireId(dto.getDatabaseId());
-        List<Answer> entityList = transformAnswerListDTO2Entity(dto.getAnswersList());
-        entity.setAnswersList(entityList);
+        if(dto.getAnswersList() != null) {
+            List<Answer> entityList = transformAnswerListDTO2Entity(dto.getAnswersList());
+            entity.setAnswersList(entityList);
+        } else entity.setAnswersList(new ArrayList<Answer>());
+        if(dto.getQuestionnaire() != null) {
+            Questionnaire questionnaire = QuestionnaireDAOImplementation.transformQuestionnaireDTO2Entity(dto.getQuestionnaire());
+            entity.setQuestionnaire(questionnaire);
+        } else entity.setQuestionnaire(new Questionnaire()); // This case is obviously an error.
         return entity;
     }
 
