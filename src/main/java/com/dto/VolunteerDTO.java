@@ -1,6 +1,7 @@
 package com.dto;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -132,6 +133,7 @@ public class VolunteerDTO {
     }
 
     public List<ApplicationDTO> getApplicationsList() {
+        if (applicationsList == null) applicationsList = new ArrayList<ApplicationDTO>();
         return applicationsList;
     }
 
@@ -140,6 +142,7 @@ public class VolunteerDTO {
     }
 
     public List<ApplicationDTO> getPendingApplicationsList() {
+        if (pendingApplicationsList == null) pendingApplicationsList = new ArrayList<ApplicationDTO>();
         return pendingApplicationsList;
     }
 
@@ -148,6 +151,7 @@ public class VolunteerDTO {
     }
 
     public List<InterestDTO> getInterestsList() {
+        if (interestsList == null) interestsList = new ArrayList<InterestDTO>();
         return interestsList;
     }
 
@@ -156,6 +160,7 @@ public class VolunteerDTO {
     }
 
     public List<KnowledgeAreaDTO> getKnowledgeAreasList() {
+        if (knowledgeAreasList == null) knowledgeAreasList = new ArrayList<KnowledgeAreaDTO>();
         return knowledgeAreasList;
     }
 

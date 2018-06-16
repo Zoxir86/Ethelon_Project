@@ -1,6 +1,7 @@
 package com.database;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name="Volunteer")
@@ -134,6 +135,7 @@ public class Volunteer extends User {
     }
 
     public List<Application> getApplicationsList() {
+        if (applicationsList == null) applicationsList = new ArrayList<Application>();
         return applicationsList;
     }
 
@@ -142,6 +144,7 @@ public class Volunteer extends User {
     }
 
     public List<Application> getPendingApplicationsList() {
+        if (pendingApplicationsList == null) pendingApplicationsList = new ArrayList<Application>();
         return pendingApplicationsList;
     }
 
@@ -150,6 +153,7 @@ public class Volunteer extends User {
     }
 
     public List<Interest> getInterestsList() {
+        if (interestsList == null) interestsList = new ArrayList<Interest>();
         return interestsList;
     }
 
@@ -158,6 +162,7 @@ public class Volunteer extends User {
     }
 
     public List<KnowledgeArea> getKnowledgeAreasList() {
+        if (knowledgeAreasList == null) knowledgeAreasList = new ArrayList<KnowledgeArea>();
         return knowledgeAreasList;
     }
 
