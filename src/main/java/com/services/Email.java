@@ -18,10 +18,10 @@ public class Email {
     static final String TO = "recipient@example.com";
 
     // Replace smtp_username with your Amazon SES SMTP user name.
-    static final String SMTP_USERNAME = "f6e35aa7a91bfe";
+    static final String SMTP_USERNAME = "fb275f67cd281c";
 
     // Replace smtp_password with your Amazon SES SMTP password.
-    static final String SMTP_PASSWORD = "27ab3edb903e76";
+    static final String SMTP_PASSWORD = "23184af765fa7d";
 
     // The name of the Configuration Set to use for this message.
     // If you comment out or remove this variable, you will also need to
@@ -36,12 +36,12 @@ public class Email {
     // The port you will connect to on the Amazon SES SMTP endpoint.
     static final int PORT = 2525;
 
-    static final String SUBJECT = "Amazon SES test (SMTP interface accessed using Java)";
+    static final String SUBJECT = "Ethelon Admin";
 
     static final String BODY = String.join(
             System.getProperty("line.separator"),
-            "<h1>Amazon SES SMTP Email Test</h1>",
-            "<p>This email was sent with Amazon SES using the ",
+            "<h1>Ethelon Test</h1>",
+            "<p>This email was sent by Ethelon ",
             "<a href='https://github.com/javaee/javamail'>Javamail Package</a>",
             " for <a href='https://www.java.com'>Java</a>."
     );
