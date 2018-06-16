@@ -10,7 +10,6 @@ public class AnsweredQuestionnaireDTO {
     private String insertDate;                          // The date on which the answered questionnaire was first persisted.
     private String updateDate;                          // The date on which the answered questionnaire was last updated.
 
-
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     public AnsweredQuestionnaireDTO( ) {

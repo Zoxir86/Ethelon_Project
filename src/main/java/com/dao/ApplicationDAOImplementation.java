@@ -1,9 +1,7 @@
 package com.dao;
 
-import com.database.Application;
-import com.database.ApplicationState;
-import com.database.Opportunity;
-import com.database.Volunteer;
+import com.database.*;
+import com.dto.AnsweredQuestionnaireDTO;
 import com.dto.ApplicationDTO;
 import com.dto.OpportunityDTO;
 import com.dto.VolunteerDTO;
@@ -320,6 +318,11 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
         dto.setStatus(entity.getStatus());
         dto.setAvailability(entity.getAvailability());
         dto.setComments(entity.getComments());
+        if(entity.getAnsweredQuestionnaire() != null)
+        {
+            AnsweredQuestionnaireDTO anq = AnsweredQuestionnaireDAOImplementation.transformAnsweredQuestionnaireEntity2DTO(entity.getAnsweredQuestionnaire());
+            dto.setAnsweredQuestionnaire(anq);
+        } else dto.setAnsweredQuestionnaire(new AnsweredQuestionnaireDTO());  // This case is obviously erroneous.
         try {
             dto.setStatusUpdate(Utilities.ft.parse(entity.getStatusUpdate()));
             dto.setInsertDate(Utilities.ft.parse(entity.getInsertDate()));
@@ -342,6 +345,11 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
         entity.setCvIdentifier(dto.getCvIdentifier());
         entity.setAvailability(dto.getAvailability());
         entity.setComments(dto.getComments());
+        if(dto.getAnsweredQuestionnaire() != null)
+        {
+            AnsweredQuestionnaire anq = AnsweredQuestionnaireDAOImplementation.transformAnsweredQuestionnaireDTO2Entity(dto.getAnsweredQuestionnaire());
+            entity.setAnsweredQuestionnaire(anq);
+        } else entity.setAnsweredQuestionnaire(new AnsweredQuestionnaire());  // This case is obviously erroneous.
         return entity;
         // Note: Status, StatusUpdate, InsertDate are never transported through a DTO towards the database.
     }

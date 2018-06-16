@@ -36,12 +36,15 @@ public class Application {
     @Column(name="Comments")                                        // General comments (entered through a form as free text).
     private String comments;
 
+    @OneToOne                                                       // The answers to a Questionnaire.
+    private AnsweredQuestionnaire answeredQuestionnaire;
+
     /**************************************  Constructors   ***********************************************/
     public Application( ) {
         super();
     }
 
-    public Application(Opportunity opportunity, Volunteer volunteer, String status, String insertDate, String statusUpdate, String cvIdentifier, String availability, String comments) {
+    public Application(Opportunity opportunity, Volunteer volunteer, String status, String insertDate, String statusUpdate, String cvIdentifier, String availability, String comments, AnsweredQuestionnaire answeredQuestionnaire) {
         this.opportunity = opportunity;
         this.volunteer = volunteer;
         this.status = status;
@@ -50,6 +53,7 @@ public class Application {
         this.cvIdentifier = cvIdentifier;
         this.availability = availability;
         this.comments = comments;
+        this.answeredQuestionnaire = answeredQuestionnaire;
     }
 
     /***************************************   Getters and Setters   ***************************************/
@@ -124,4 +128,13 @@ public class Application {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+    public AnsweredQuestionnaire getAnsweredQuestionnaire() {
+        return answeredQuestionnaire;
+    }
+
+    public void setAnsweredQuestionnaire(AnsweredQuestionnaire answeredQuestionnaire) {
+        this.answeredQuestionnaire = answeredQuestionnaire;
+    }
+
 } // End of Application class.

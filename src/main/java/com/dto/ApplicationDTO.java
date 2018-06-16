@@ -4,13 +4,14 @@ import java.util.Date;
 
 public class ApplicationDTO {
 
-    private int databaseId;                // A unique identification number in the database.
-    private Date insertDate;               // The date on which the application was persisted.
-    private String status;                 // The current status of an application. Receives values from enum class ApplicationState.
-    private Date statusUpdate;             // The date on which the application status was last updated.
-    private String cvIdentifier;           // The identifier of a Curriculum Vitae document uploaded with the application.
-    private String availability;           // The volunteer's availability (entered through a form as free text).
-    private String comments;               // General comments (entered through a form as free text).
+    private int databaseId;                                     // A unique identification number in the database.
+    private Date insertDate;                                    // The date on which the application was persisted.
+    private String status;                                      // The current status of an application. Receives values from enum class ApplicationState.
+    private Date statusUpdate;                                  // The date on which the application status was last updated.
+    private String cvIdentifier;                                // The identifier of a Curriculum Vitae document uploaded with the application.
+    private String availability;                                // The volunteer's availability (entered through a form as free text).
+    private String comments;                                    // General comments (entered through a form as free text).
+    private AnsweredQuestionnaireDTO answeredQuestionnaire;     // The answers to a Questionnaire.
 
 
     /**************************************  Constructors   ***********************************************/
@@ -18,7 +19,7 @@ public class ApplicationDTO {
         super();
     }
 
-    public ApplicationDTO(int databaseId, Date insertDate, String status, Date statusUpdate, String cvIdentifier, String availability, String comments) {
+    public ApplicationDTO(int databaseId, Date insertDate, String status, Date statusUpdate, String cvIdentifier, String availability, String comments, AnsweredQuestionnaireDTO answeredQuestionnaire) {
         this.databaseId = databaseId;
         this.insertDate = insertDate;
         this.status = status;
@@ -26,6 +27,7 @@ public class ApplicationDTO {
         this.cvIdentifier = cvIdentifier;
         this.availability = availability;
         this.comments = comments;
+        this.answeredQuestionnaire = answeredQuestionnaire;
     }
 
     /***************************************   Getters and Setters   ***************************************/
@@ -84,4 +86,13 @@ public class ApplicationDTO {
     public void setComments(String comments) {
         this.comments = comments;
     }
-}
+
+    public AnsweredQuestionnaireDTO getAnsweredQuestionnaire() {
+        return answeredQuestionnaire;
+    }
+
+    public void setAnsweredQuestionnaire(AnsweredQuestionnaireDTO answeredQuestionnaire) {
+        this.answeredQuestionnaire = answeredQuestionnaire;
+    }
+
+}  // End of ApplicationDTO class.
