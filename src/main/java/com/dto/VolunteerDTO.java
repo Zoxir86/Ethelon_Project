@@ -31,7 +31,7 @@ public class VolunteerDTO {
     private Date loggedInLast = null;                           // Latest date of log-in.
     private Date accountCreated = null;                         // The date on which the user account has been created.
     private Date accountUpdated = null;                         // The date on which the user account has last been updated.
-
+    private boolean selected;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public VolunteerDTO( ) {
@@ -233,5 +233,13 @@ public class VolunteerDTO {
 
     public void setAccountUpdated(Date accountUpdated) {
         this.accountUpdated = accountUpdated;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }
