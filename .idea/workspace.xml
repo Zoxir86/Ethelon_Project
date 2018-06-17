@@ -8,17 +8,135 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de01e76-b95f-4811-84af-0ad7d857b1d6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/scripts/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/styles/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_faces_jsf_api_2_2_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_faces_jsf_impl_2_2_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_primefaces_primefaces_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_sun_faces_jsf_api_2_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_sun_faces_jsf_impl_2_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_primefaces_primefaces_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Tests/OpportunityTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/controller/ApplicationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/controller/OpportunityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/controller/QuestionnaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/converter/AreaConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/converter/InterConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/converter/KnowlConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/frontend_components/OpportunityCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lists/Areas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lists/Interests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lists/Knowledge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lists/lists.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/session/SessionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/activity.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/activity_quests.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/edit_account.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/11index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/Source.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/index.pug" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/less/style.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/pics/adopt-a-puppy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/frontend/pics/arduino-day.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/opportunity.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/questionnaire.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Ethelon_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Ethelon_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ethelon.eml" beforeDir="false" afterPath="$PROJECT_DIR$/Ethelon.eml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ca340b4c-f48b-4638-9ea0-3c0b99c27825.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ethelon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ethelon.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ethelon.db" beforeDir="false" afterPath="$PROJECT_DIR$/ethelon.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Tests/OpportApplicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Tests/OpportApplicTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/InterestDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/InterestDAOImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/ApplicationDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/ApplicationDAOImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/AreaDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/AreaDAOImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/NgoDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/NgoDAOImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAOImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAOImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAOImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAOImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/database/Ngo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/database/Ngo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/database/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/database/Opportunity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/OpportunityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dto/OpportunityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/QuestionnaireDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dto/QuestionnaireDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/create_account.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/create_account.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/Tests/OpportApplicTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/Tests/OpportApplicTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/controller/VolunteerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/ApplicationDAOImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/ApplicationDAOImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/AreaDAOImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/AreaDAOImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/NgoDAOImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/NgoDAOImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/OpportunityDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/OpportunityDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/OpportunityDAOImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/OpportunityDAOImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/QuestionnaireDAOImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dao/QuestionnaireDAOImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/database/Ngo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/database/Ngo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/database/Opportunity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/database/Opportunity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dto/OpportunityDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/classes/com/dto/OpportunityDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Ethelon/create_account.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Ethelon/create_account.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Tests/AreaTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Tests/MainTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Tests/OpportApplicTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Tests/QuestionnaireTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Tests/SocialMediumTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Tests/VolunteerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/NgoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/VolunteerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/ApplicationDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/ApplicationDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/AreaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/AreaDAOImplementation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/AreaDAOImplementation$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/AreaDAOImplementation$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/AreaDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/InterestDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/InterestDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/KnowledgeAreaDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/KnowledgeAreaDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/NgoDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/NgoDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/OpportunityDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/OpportunityDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/QuestionnaireDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/QuestionnaireDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/SocialMediumDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/SocialMediumDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/Utilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/VolunteerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/VolunteerDAOImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/ApplicationState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Area.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Interest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/KnowledgeArea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Ngo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Opportunity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Question.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Questionnaire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Sex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/SocialMedium.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/database/Volunteer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/ApplicationDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/AreaDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/InterestDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/KnowledgeAreaDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/NgoDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/OpportunityDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/QuestionDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/QuestionnaireDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/SocialMediumDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/VolunteerDTO.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,18 +164,11 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ethelon" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ethelon [2]" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ethelon" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ethelon.db" type="feb32156:DbDataSourceImpl" />
+        <item name="ethelon-glass.db" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -65,111 +176,85 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ethelon.db [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ethelon.db [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ethelon.db [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ethelonglass" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create_account.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/create_account.xhtml">
+      <file leaf-file-name="opportunity.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/opportunity.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="46" column="110" selection-start-line="46" selection-start-column="110" selection-end-line="46" selection-end-column="110" />
+            <state relative-caret-position="325">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="area" pinned="false" current-in-tab="false">
-        <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/area">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interest" pinned="false" current-in-tab="false">
-        <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/interest">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knowledgearea" pinned="false" current-in-tab="false">
-        <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/knowledgearea">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user" pinned="false" current-in-tab="false">
-        <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="area" pinned="false" current-in-tab="true">
-        <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/area">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interest" pinned="false" current-in-tab="false">
-        <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/interest">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knowledgearea" pinned="false" current-in-tab="false">
-        <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/knowledgearea">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user" pinned="false" current-in-tab="false">
-        <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VolunteerDAOImplementation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAOImplementation.java">
+      <file leaf-file-name="activity.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/activity.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2006">
-              <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+            <state relative-caret-position="875">
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_quests.xhtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/activity_quests.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="775">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ApplicationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationDAOImplementation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/ApplicationDAOImplementation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/ApplicationDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpportunityController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/OpportunityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="41" column="71" selection-start-line="25" selection-end-line="41" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#915#928#0" expanded="true" />
+                <element signature="e#992#1005#0" expanded="true" />
+                <element signature="e#1152#1170#0" expanded="true" />
+                <element signature="e#1240#1258#0" expanded="true" />
+                <element signature="e#1368#1377#0" expanded="true" />
+                <element signature="e#1433#1442#0" expanded="true" />
+                <element signature="e#1824#1837#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,13 +265,25 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="jsf" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>org.mi</find>
+      <find>showcase</find>
+      <find>intr</find>
+      <find>Connection</find>
+      <find>jdbc:sqlite</find>
       <find>CONSTRAINT</find>
+      <find>Warehouse</find>
+      <find>userAreaList</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\Users\user\Documents\MSc Advanced Software Engineering - Data Analytics\ETHELOMALAKIES\Ethelon_Project\src\main\webapp\WEB-INF</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -204,9 +301,37 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/89271cf0-b338-40fb-9e44-333ac173c35e/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/dao/InterestDAOImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/scripts/jquery-3.3.1.min.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java" />
+        <option value="$PROJECT_DIR$/.idea/dataSources.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/questionnaire.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dto/OpportunityDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dto/QuestionnaireDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/Converter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lists/lists.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lists/Interests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lists/Knowledge.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lists/Areas.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/converter/OBJConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/create_account_orig.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/VolunteerController2.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/try.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/converter/InterConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/converter/KnowlConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/converter/AreaConverter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/create_account.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/questionnaire.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/QuestionnaireController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/opportunity.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAOImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/edit_account.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/session/SessionUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/OpportunityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/activity.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/activity_quests.xhtml" />
       </list>
     </option>
   </component>
@@ -237,7 +362,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="756" />
     <option name="y" value="368" />
     <option name="width" value="1571" />
@@ -248,7 +373,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +383,21 @@
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -273,23 +412,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
@@ -298,114 +420,84 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="Ethelon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ethelon_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ethelon_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="Ethelon" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="detailMessage&#9;PSI&#9;JAVA://java.lang.Throwable#detailMessage" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Ethelon_Project" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.23993686" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\MSc Advanced Software Engineering - Data Analytics\ETHELOMALAKIES\Ethelon_Project\src\main\webapp" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\MSc Advanced Software Engineering - Data Analytics\ETHELOMALAKIES\Ethelon_Project\src\main\webapp" />
+      <recent name="C:\Users\user\Documents\MSc Advanced Software Engineering - Data Analytics\ETHELOMALAKIES\Ethelon_Project\lib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -419,7 +511,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AreaTest">
+  <component name="RunManager" selected="GlassFish Server.GlassFish 4.1.1">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -449,7 +541,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
     <configuration name="GlassFish 4.1.1" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 4.1.2" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="Ethelon:war">
           <settings />
@@ -608,7 +700,36 @@
       <workItem from="1527695050305" duration="4364000" />
       <workItem from="1527699967603" duration="50000" />
       <workItem from="1527700482870" duration="3507000" />
-      <workItem from="1528038674768" duration="2743000" />
+      <workItem from="1528038674768" duration="4358000" />
+      <workItem from="1528043062316" duration="1743000" />
+      <workItem from="1528134889617" duration="3811000" />
+      <workItem from="1528536245964" duration="15054000" />
+      <workItem from="1528559033329" duration="131000" />
+      <workItem from="1528559184539" duration="475000" />
+      <workItem from="1528559683212" duration="2804000" />
+      <workItem from="1528562513831" duration="1958000" />
+      <workItem from="1528564513489" duration="75000" />
+      <workItem from="1528564613863" duration="79000" />
+      <workItem from="1528564893512" duration="13162000" />
+      <workItem from="1528578116077" duration="660000" />
+      <workItem from="1528578805861" duration="1544000" />
+      <workItem from="1528580373601" duration="398000" />
+      <workItem from="1528580793646" duration="256000" />
+      <workItem from="1528581087522" duration="1265000" />
+      <workItem from="1528582386316" duration="295000" />
+      <workItem from="1528582838258" duration="603000" />
+      <workItem from="1528617907794" duration="1204000" />
+      <workItem from="1528619170318" duration="130000" />
+      <workItem from="1528619322844" duration="732000" />
+      <workItem from="1529002844832" duration="825000" />
+      <workItem from="1529096232833" duration="1821000" />
+      <workItem from="1529147475974" duration="523000" />
+      <workItem from="1529148266147" duration="19649000" />
+      <workItem from="1529230498481" duration="7941000" />
+      <workItem from="1529249195357" duration="2373000" />
+      <workItem from="1529251681449" duration="3335000" />
+      <workItem from="1529255057509" duration="3722000" />
+      <workItem from="1529258866652" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="Implementing the form for the NGO.">
       <created>1521826946387</created>
@@ -621,48 +742,48 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40515000" />
+    <option name="totallyTimeSpent" value="128729000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="3862" height="2126" extended-state="7" />
+    <frame x="-11" y="-11" width="3862" height="2126" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.44973958" side_tool="true" visible="true" weight="0.31771895" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.459375" side_tool="true" weight="0.31771895" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.22307692" />
       <window_info anchor="right" id="Maven Projects" order="11" weight="0.32958305" />
       <window_info anchor="bottom" id="Database Changes" order="13" sideWeight="0.4997396" weight="0.3299389" />
       <window_info id="Capture Tool" order="9" />
       <window_info id="Designer" order="3" />
       <window_info anchor="right" id="Database" order="7" sideWeight="0.49930555" visible="true" weight="0.159375" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="JSF" order="6" weight="0.32958305" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.100520834" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49947917" weight="0.3996945" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49921876" weight="0.3996945" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4986979" weight="0.21435845" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5502604" visible="true" weight="0.31771895" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49880764" weight="0.26760563" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.540625" weight="0.31771895" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Persistence" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49921876" weight="0.26680243" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17630209" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32958305" />
       <window_info id="Web" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="EJB" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="915" height="1926" id="Documentation" order="0" sideWeight="0.50069445" side_tool="true" weight="0.15286459" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49921876" weight="0.26680243" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49817708" weight="0.21435845" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299389" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,166 +824,340 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="99" />
+      <option name="time" value="111" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GlassfishConfiguration">
+        <watch expression="this" />
+        <watch expression="em" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/AreaDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+    <entry file="das://6b78cc7d-1266-4f26-a94b-f7c57c24bde6/schema/main/table/knowledgearea">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/ApplicationDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lists/Knowledge.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="350">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Volunteer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+    <entry file="das://6b78cc7d-1266-4f26-a94b-f7c57c24bde6/schema/main/table/interest">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Sex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21154">
-          <caret line="1348" column="79" lean-forward="true" selection-start-line="1348" selection-start-column="79" selection-end-line="1348" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/SocialMediumDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1012">
-          <caret line="176" column="56" selection-start-line="176" selection-start-column="56" selection-end-line="176" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/AreaDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Opportunity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/OpportunityDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/QuestionDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/QuestionnaireDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Questionnaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Question.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1513">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/ApplicationState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/NgoDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+    <entry file="file://$PROJECT_DIR$/target/classes/com/database/Volunteer.class" />
+    <entry file="das://6b78cc7d-1266-4f26-a94b-f7c57c24bde6/schema/main/table/user_knowledgearea">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/AreaDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="150">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/ApplicationDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/KnowledgeAreaDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3448">
+          <caret line="138" column="51" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/AreaDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5925">
+          <caret line="237" column="47" selection-start-line="237" selection-start-column="47" selection-end-line="237" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/converter/InterConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/converter/KnowlConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="20" selection-start-line="20" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/VolunteerController2.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lists/Areas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/converter/AreaConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/KnowledgeAreaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0321557b-cb61-4d0a-8aae-afcfd166aaab/schema/main/table/user" />
+    <entry file="das://6b78cc7d-1266-4f26-a94b-f7c57c24bde6/schema/main/table/user_interest">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/VolunteerDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1200">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Sex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6b78cc7d-1266-4f26-a94b-f7c57c24bde6/schema/main/table/sequence">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/04ac1f08-2eff-4c88-8b7a-27ade1282fc1/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://04ac1f08-2eff-4c88-8b7a-27ade1282fc1/schema/main/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6b78cc7d-1266-4f26-a94b-f7c57c24bde6/schema/main/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://04ac1f08-2eff-4c88-8b7a-27ade1282fc1/schema/main/table/user_interest">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://04ac1f08-2eff-4c88-8b7a-27ade1282fc1/schema/main/table/user_knowledgearea">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://04ac1f08-2eff-4c88-8b7a-27ade1282fc1/schema/main/table/area">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Tests/VolunteerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lists/Interests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/QuestionDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/QuestionnaireDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/OpportunityDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lists/lists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/create_account.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="68" column="9" selection-start-line="20" selection-start-column="4" selection-end-line="68" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5875">
+          <caret line="246" column="75" selection-start-line="246" selection-start-column="75" selection-end-line="246" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="60" column="66" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/edit_account.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/QuestionnaireController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionnaire.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/QuestionnaireDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/OpportunityDAOImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4230">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/session/SessionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontend/11index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/frontend_components/OpportunityCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontend/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/opportunity.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/activity.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/OpportunityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="41" column="71" selection-start-line="25" selection-end-line="41" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#915#928#0" expanded="true" />
+            <element signature="e#992#1005#0" expanded="true" />
+            <element signature="e#1152#1170#0" expanded="true" />
+            <element signature="e#1240#1258#0" expanded="true" />
+            <element signature="e#1368#1377#0" expanded="true" />
+            <element signature="e#1433#1442#0" expanded="true" />
+            <element signature="e#1824#1837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -873,219 +1168,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/database/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/NgoDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="106" column="71" selection-start-line="106" selection-start-column="71" selection-end-line="106" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/NgoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/register_ngo.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1375">
-          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/NgoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/Ethelon/create_account.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/controller/VolunteerController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2a04fecf-78a6-4b75-b7b6-67cd9e40200b/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/InterestDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/ApplicationDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dto/VolunteerDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/activity_quests.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/InterestDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/user_interest">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/user_interest">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/scripts/jquery-3.3.1.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="86841" selection-start-line="1" selection-start-column="86841" selection-end-line="1" selection-end-column="86841" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/InterestDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/Tests/AreaTest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#1564#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/VolunteerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1291">
-          <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#762#775#0" expanded="true" />
-            <element signature="e#928#941#0" expanded="true" />
-            <element signature="e#991#1009#0" expanded="true" />
-            <element signature="e#1077#1095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/com/dao/VolunteerDAOImplementation.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#12292#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/VolunteerDAOImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2006">
-          <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/create_account.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="46" column="110" selection-start-line="46" selection-start-column="110" selection-end-line="46" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/area">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/interest">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ca340b4c-f48b-4638-9ea0-3c0b99c27825/schema/main/table/knowledgearea">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/knowledgearea">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/interest">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6/schema/main/table/area">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="775">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -1112,7 +1205,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.23993686" />
               </list>
             </option>
           </splitter-proportions>
@@ -1147,7 +1240,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.23993686" />
                 <option value="0.6" />
               </list>
             </option>
@@ -1156,11 +1249,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>ejb-3.2</last-edited>
+          <last-edited>com.sun.faces:jsf-impl:2.2.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.23993686" />
               </list>
             </option>
           </splitter-proportions>

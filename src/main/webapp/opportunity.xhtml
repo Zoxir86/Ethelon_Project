@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Opportunity</title>
+    <script type="text/javascript" src="static/scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/scripts/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/styles/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="static/scripts/datepicker/css/bootstrap-datepicker.min.css"/>
+</head>
+<body>
+<h:form>
+    <h3>Create your new Opportunity for volunteers!</h3>
+    <h3>Please fill out all your information in the form below!</h3>
+    <h:panelGrid columns="2" >
+        <h:outputLabel value="Title: "/>
+        <h:inputText value="#{oppcontr.opportunityDto.englishTitle}"/>
+        <h:outputLabel value="Summary: "/>
+        <h:inputText value="#{oppcontr.opportunityDto.englishSummary}"/>
+        <h:outputLabel value="Detailed Description:" />
+        <h:inputText value="#{oppcontr.opportunityDto.englishDescription}"/>
+
+        <h:outputLabel value="Overseeing Employee: "/>
+        <h:inputText value="#{oppcontr.opportunityDto.contactPerson}"/>
+        <h:outputLabel value="Overseeing Employee's Email:"/>
+        <h:inputText value="#{oppcontr.opportunityDto.contactPersonEmail}"/>
+        <h:outputLabel value="Starting Date:"/>
+        <h:inputText id="opdatefield" value="#{oppcontr.opportunityDto.openDate}" >
+            <f:convertDateTime pattern="dd/MM/yyyy" />
+        </h:inputText>
+        <h:outputLabel value="Closing Date:"/>
+        <h:inputText id="cldatefield" value="#{oppcontr.opportunityDto.closeDate}" >
+            <f:convertDateTime pattern="dd/MM/yyyy" />
+        </h:inputText>
+        <h:outputLabel value="Where will it be held? "/>
+        <h:selectOneMenu value="#{oppcontr.oppAreaList}" converter="">
+            <f:selectItems value="#{oppcontr.areaList}" var="ar" itemValue="#{ar.databaseID}" itemLabel="#{ar.area}" />
+        </h:selectOneMenu>
+        <h:outputLabel value="Select tag(s) that are applicable: "/>
+        <h:selectManyCheckbox value="#{oppcontr.oppInterestList}" columns="1" converter="interconv">
+            <f:selectItems value="#{oppcontr.interestList}" var="inter" itemLabel="#{inter.descriptionEnglishLowerCase}" itemValue="#{inter}" />
+        </h:selectManyCheckbox>
+        <h:outputLabel value="Select applicable possible volunteer knowledge: "/>
+        <h:selectManyCheckbox value="#{oppcontr.oppKnowledgeList}" columns="1" converter="knowlconv">
+            <f:selectItems value="#{oppcontr.knowledgeList}" var="knowl" itemLabel="#{knowl.descriptionEnglishLowerCase}" itemValue="#{knowl}" />
+        </h:selectManyCheckbox>
+        <h:outputLabel value="Will you provide special training?" />
+        <h:selectOneRadio value = "#{oppcontr.opportunityDto.trainingProvidedYN}">
+            <f:selectItem itemValue = "Y" itemLabel = "Yes" />
+            <f:selectItem itemValue = "N" itemLabel = "No" />
+        </h:selectOneRadio>
+        <h:outputLabel value="What are the questions that you would like to ask your volunteers?"/>
+        <h:outputLabel value="Question 1:"/>
+        <h:inputText value="#{oppcontr.question1}"/>
+        <h:outputLabel value="Question 2:"/>
+        <h:inputText value="#{oppcontr.question2}"/>
+        <h:outputLabel value="Question 3:" />
+        <h:inputText value="#{oppcontr.question3}"/>
+    </h:panelGrid>
+    <h:commandButton value="Submit" action="#{oppcontr.setOpportunityDto}"/>
+    <h:commandButton value="Back" action="#{oppcontr.backPage}"/>
+</h:form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document.getElementById("j_idt5:opdatefield")).attr("readonly", "readonly");
+        $(document.getElementById("j_idt5:opdatefield")).datepicker({
+            format: 'dd/mm/yyyy',
+            ignoreReadonly: true,
+        });
+        $(document.getElementById("j_idt6:cldatefield")).attr("readonly", "readonly");
+        $(document.getElementById("j_idt6:cldatefield")).datepicker({
+            format: 'dd/mm/yyyy',
+            ignoreReadonly: true,
+        });
+    });
+</script>
+</body>
+</html>

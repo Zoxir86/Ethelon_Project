@@ -37,10 +37,18 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
             em.getTransaction().begin();
             Volunteer entity = transformVolunteerDTO2Entity(dto);
             entity.setEthelonVolunteerYN(false);
-            //entity.setApplicationsList(new ArrayList<Application>());
-            //entity.setPendingApplicationsList(new ArrayList<Application>());
-            entity.setInterestsList(new ArrayList<Interest>());
-            entity.setKnowledgeAreasList(new ArrayList<KnowledgeArea>());
+            if (entity.getApplicationsList() == null) {
+                entity.setApplicationsList(new ArrayList<Application>());
+            }
+            if (entity.getPendingApplicationsList() == null) {
+                entity.setPendingApplicationsList(new ArrayList<Application>());
+            }
+            if (entity.getInterestsList() == null) {
+                entity.setInterestsList(new ArrayList<Interest>());
+            }
+            if (entity.getKnowledgeAreasList() == null) {
+                entity.setKnowledgeAreasList(new ArrayList<KnowledgeArea>());
+            }
             entity.setAccountCreated(Utilities.ft.format(new Date()));
             entity.setAccountUpdated(Utilities.ft.format(new Date()));
             entity.setAppliedLast("");
@@ -182,7 +190,6 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
         return entity;
     }
 
-
     /******************************************************************************************************************
      Utility: Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
 
@@ -310,4 +317,4 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
     }
 
 
-}
+} // End of VolunteerDAOImplementation class.

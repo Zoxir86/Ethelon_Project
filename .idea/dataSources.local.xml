@@ -2,24 +2,29 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="ethelon.db [2]" uuid="49e9f4a7-5f14-44fd-bc5a-8a10eb91e0e6">
-      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <auth-required>false</auth-required>
-      <introspection-schemas>*:main</introspection-schemas>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
     <data-source name="ethelon.db" uuid="89271cf0-b338-40fb-9e44-333ac173c35e">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
     <data-source name="ethelon" uuid="ca340b4c-f48b-4638-9ea0-3c0b99c27825">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+    <data-source name="ethelonglass" uuid="07a5963d-d955-485f-b28d-e7c4672725b5">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+    <data-source name="ethelon [2]" uuid="6b78cc7d-1266-4f26-a94b-f7c57c24bde6">
       <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
-    <data-source name="identifier.sqlite [2]" uuid="2a04fecf-78a6-4b75-b7b6-67cd9e40200b">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    <data-source name="ethelon-glass.db" uuid="04ac1f08-2eff-4c88-8b7a-27ade1282fc1">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
-      <first-sync>true</first-sync>
+      <introspection-schemas>*:main</introspection-schemas>
     </data-source>
   </component>
 </project>

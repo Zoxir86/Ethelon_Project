@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>#{oppcontr.opportunityDto.englishTitle}</title>
+</head>
+<body>
+<h:form>
+    <h3>Create your new Opportunity for volunteers!</h3>
+    <h3>Please fill out all your information in the form below!</h3>
+    <h:panelGrid columns="2" >
+        <h:outputLabel value="#{oppcontr.opportunityDto.englishTitle}"/>
+        <h:outputLabel value="Summary: "/>
+        <br></br>
+        <h:outputLabel value="#{oppcontr.opportunityDto.englishSummary}"/>
+        <h:outputLabel value="Detailed Description:" />
+        <br></br>
+        <h:outputLabel value="#{oppcontr.opportunityDto.englishDescription}"/>
+        <h:outputLabel value="Starting Date:"/>
+        <h:outputLabel value="#{oppcontr.opportunityDto.openDate}"/>
+        <h:outputLabel value="Closing Date:"/>
+        <h:outputLabel value="#{oppcontr.opportunityDto.closeDate}"/>
+        <h:outputLabel value="Area:"/>
+        <h:outputLabel value="#{oppcontr.opportunityDto.area}"/>
+        <h:outputLabel value="This activity has to do with:"/>
+        <h:outputLabel value="#{oppcontr.opportunityDto.secondaryCategoriesList}"/>
+        <h:outputLabel value="Beneficial knowledges:"/>
+        <h:outputLabel value="#{oppcontr.opportunityDto.knowledgeAreasList}"/>
+        <h:outputLabel value="Training will be provided:" />
+        <h:outputLabel value = "#{oppcontr.opportunityDto.trainingProvidedYN}"/>
+    </h:panelGrid>
+    <h:commandButton value="Apply" action="#{oppcontr.setOpportunityDto}"/>
+    <h:commandButton value="Back" action="#{oppcontr.backPage}"/>
+</h:form>
+</body>
+</html>

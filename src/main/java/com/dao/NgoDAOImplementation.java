@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.database.Questionnaire;
 import com.dto.NgoDTO;
 import com.database.Ngo;
 
@@ -198,29 +199,28 @@ public class NgoDAOImplementation implements NgoDAO {
     }
 
 
-        /* TODO Check functionality and/or transform to SearchByID.
-       public ArrayList<NgoDTO> searchNgo(String organizationName) {
-        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        em = factory.createEntityManager();
-        ArrayList<NgoDTO> result = new ArrayList<NgoDTO>();
+    /******************************************************************************************************************
+     Utility: Returns a Ngo entity as persisted in the database when the databaseID is known.
+     *****************************************************************************************************************/
 
-        String nameparam = organizationName.concat("%");
+    public static Ngo findNgoById(int databaseID)
+    {
+        if(databaseID == 0) return null;
 
-        Query q = em.createQuery("SELECT n FROM Ngo n WHERE n.organizationName LIKE :organizationName");
-        q.setParameter("organizationName", nameparam);
-        List<Ngo> ngoList = q.getResultList();
-        NgoDTO temp;
+        Ngo entity;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
 
-        if(ngoList.size() != 0) {
-            for (Ngo current : ngoList){
-                temp = transformNgoEntity2DTO(current);
-                temp.setUserID(current.getUserID());
-                result.add(temp);
-            }
+        try {
+            entity = em.find( Ngo.class, databaseID );
+        } catch(Exception e) {
+            entity = null;
         }
-        em.close();
-        factory.close();
+        finally {
+            em.close();
+            factory.close();
+        }
 
-        return result;
-    } */
+        return entity;
+    }
 }

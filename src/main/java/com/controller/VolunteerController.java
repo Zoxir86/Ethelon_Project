@@ -1,60 +1,98 @@
 package com.controller;
 
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+import java.util.*;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import com.dao.*;
+import com.database.Interest;
+import com.database.KnowledgeArea;
+import com.database.Volunteer;
+import com.dto.AreaDTO;
 import com.dto.InterestDTO;
 import com.dto.KnowledgeAreaDTO;
 import com.dto.VolunteerDTO;
+import com.lists.Areas;
+import com.lists.Interests;
+import com.lists.Knowledge;
+
 
 @ManagedBean (name = "volcontr")
 @SessionScoped
-public class VolunteerController {
+public class VolunteerController implements Serializable {
 
 
 	private VolunteerDAO volunteerDao = new VolunteerDAOImplementation();
 	private VolunteerDTO volunteerDto = new VolunteerDTO();
-	//public String gender;
-	//public String occupation;
-	//public String[] interests;
     private InterestDAO interest = new InterestDAOImplementation();
 	private List<InterestDTO> interestList = new ArrayList<InterestDTO>();
 	public List<InterestDTO> userInterestList = new ArrayList<InterestDTO>();
 	private KnowledgeAreaDAO knowledge = new KnowledgeAreaDAOImplementation();
 	private List<KnowledgeAreaDTO> knowledgeList = new ArrayList<KnowledgeAreaDTO>();
 	public List<KnowledgeAreaDTO> userKnowledgeList = new ArrayList<KnowledgeAreaDTO>();
+	private AreaDAO area = new AreaDAOImplementation();
+	private List<AreaDTO> areaList = new ArrayList<AreaDTO>();
+    public List<AreaDTO> userAreaList = new ArrayList<AreaDTO>();
 
-	public String[] favNumber4;
+    @ManagedProperty("#{intlist}")
+    private Interests interService;
+    @ManagedProperty("#{knowlist}")
+    private Knowledge knowlService;
+    //@ManagedProperty("#{arealist}")
+    //private Areas areaService;
 
+    @PostConstruct
+    public void init(){
+        interestList = interService.getInterestList();
+        knowledgeList = knowlService.getKnowledgeList();
+        //areaList = areaService.getAreaList();options = new ArrayList<String>();
+    }
 
 	public VolunteerDTO getVolunteerDto() {
-		return volunteerDto;
+	    return volunteerDto;
 	}
 
 	public String setVolunteerDto() {
-		//this.volunteerDto.setInterestsList(this.userInterestList);
+
+		this.volunteerDto.setInterestsList(this.userInterestList);
+		this.volunteerDto.setKnowledgeAreasList(this.userKnowledgeList);
+		this.volunteerDto.setArea(null);
 
 		volunteerDao.insertVolunteer(this.volunteerDto);
+
 		return "success.xhtml";
 	}
 
+	public String updateVolunteerDto(){
+
+		this.volunteerDto.setInterestsList(this.userInterestList);
+		this.volunteerDto.setKnowledgeAreasList(this.userKnowledgeList);
+		this.volunteerDto.setArea(null);
+
+		volunteerDao.updateVolunteer(this.volunteerDto);
+
+		return "success.xhtml";
+	}
 
 	public List<InterestDTO> getInterestList() {
-	    interestList = interest.getFullListOfInterests();
-
-		return interestList;
+    	return interestList;
 	}
 
-	public List<InterestDTO> getUserInterestList(){
-		return new InterestDAOImplementation().getFullListOfInterests();
-	}
+    public void setInterService(Interests interService) {
+        this.interService = interService;
+    }
+
+	/*public List<InterestDTO> getUserInterestList(){
+	    return new InterestDAOImplementation().getFullListOfInterests();
+	}*/
+
+    public List<InterestDTO> getUserInterestList() {
+        return userInterestList;
+    }
 
 	public void setUserInterestList(List<InterestDTO> userInterestList){
 		this.userInterestList = userInterestList;
@@ -62,56 +100,48 @@ public class VolunteerController {
 
 
 	public List<KnowledgeAreaDTO> getKnowledgeList() {
-		knowledgeList = knowledge.getFullListOfKnowledgeAreas();
-
-		return knowledgeList;
+    	return knowledgeList;
 	}
 
-	public List<KnowledgeAreaDTO> getUserKnowledgeList(){
+    public void setKnowlService(Knowledge knowlService) {
+        this.knowlService = knowlService;
+    }
+
+	/*public List<KnowledgeAreaDTO> getUserKnowledgeList(){
 		return new KnowledgeAreaDAOImplementation().getFullListOfKnowledgeAreas();
-	}
+	}*/
+
+    public List<KnowledgeAreaDTO> getUserKnowledgeList() {
+        return userKnowledgeList;
+    }
 
 	public void setUserKnowledgeList(List<KnowledgeAreaDTO> userKnowledgeList){
 		this.userKnowledgeList = userKnowledgeList;
 	}
 
-	/*public String getGender()
-	{
-		return gender;
+
+    public List<AreaDTO> getAreaList() {
+        return areaList;
+    }
+
+    public void setAreaList(List<AreaDTO> areaList) {
+        this.areaList = areaList;
+    }
+
+	/*public List<AreaDTO> getAreaList() {
+    	return areaList;
 	}
 
-	public void setGender(String gender)
-	{
-		this.gender=gender;
-	}
+    public void setAreaService(Areas areaService) {
+        this.areaService = areaService;
+    }*/
 
-	public String getOccupation()
-	{
-		return occupation;
-	}
+    /*public List<AreaDTO> getUserAreaList() {
+        return userAreaList;
+    }
 
-	public void setOccupation(String occupation)
-	{
-		this.occupation=occupation;
-	}
-
-	public String getInterestsInString() {
-		return Arrays.toString(interests);
-	}
-
-	public void setInterestsInString(String[] interests) {
-		this.interests=interests;
-	}
-
-	private static Map<String,Object> interests2Value;
-	static{
-		interests2Value = new LinkedHashMap<String,Object>();
-		interests2Value.put("Animals", "Animals");
-		interests2Value.put("Nature", "Nature");
-	}
-
-	public Map<String,Object> getInterests2Value() {
-		return interests2Value;
+	public void setUserAreaList(List<AreaDTO> userAreaList) {
+		this.userAreaList = userAreaList;
 	}*/
 
 	public String backPage() {

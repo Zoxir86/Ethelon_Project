@@ -265,7 +265,7 @@ public class AreaDAOImplementation implements AreaDAO {
         ArrayList<AreaDTO> areaDTOList = new ArrayList<AreaDTO>();
 
         try {
-            Query q = em.createQuery("SELECT a FROM Area a ");
+            Query q = em.createQuery("SELECT a FROM Area a where 1=1 ");
             List<Area> areaList = q.getResultList();
             AreaDTO temp;
 

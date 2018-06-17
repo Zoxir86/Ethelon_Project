@@ -43,7 +43,7 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
 
             em.persist(application);
 
-            Opportunity opportunity = em.find(Opportunity.class, opportunityDTO.getDatabaseId());
+            Opportunity opportunity = em.find(Opportunity.class, opportunityDTO.getDatabaseID());
             List<Application> list = opportunity.getApplicationsList();
             list.add(application);
             opportunity.setApplicationsList(list);
@@ -344,5 +344,31 @@ public class ApplicationDAOImplementation implements ApplicationDAO {
         entity.setComments(dto.getComments());
         return entity;
         // Note: Status, StatusUpdate, InsertDate are never transported through a DTO towards the database.
+    }
+
+
+    /******************************************************************************************************************
+     Utility: Returns an Application entity as persisted in the database when the databaseID is known.
+     *****************************************************************************************************************/
+
+    public static Application findApplicationById(int databaseID)
+    {
+        if(databaseID == 0) return null;
+
+        Application entity;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try {
+            entity = em.find( Application.class, databaseID );
+        } catch(Exception e) {
+            entity = null;
+        }
+        finally {
+            em.close();
+            factory.close();
+        }
+
+        return entity;
     }
 }

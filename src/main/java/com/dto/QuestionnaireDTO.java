@@ -7,7 +7,7 @@ import java.util.List;
 public class QuestionnaireDTO {
 
     private int databaseId;                          // A unique identification number in the database.
-    private List<QuestionDTO> questionList;             // A list of questions associated with the questionnaire.
+    private List<QuestionDTO> questionList;          // A list of questions associated with the questionnaire.
 
     /**************************************  Constructors   ***********************************************/
     public QuestionnaireDTO ( ) {

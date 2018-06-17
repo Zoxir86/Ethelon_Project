@@ -1,64 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Create Account</title>
-	<script type="text/javascript" src="static/scripts/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="static/scripts/datepicker/js/bootstrap-datepicker.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="static/styles/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="static/scripts/datepicker/css/bootstrap-datepicker.min.css"/>
-</head>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Create Account</title>
+    <script type="text/javascript" src="static/scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/scripts/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/styles/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="static/scripts/datepicker/css/bootstrap-datepicker.min.css"/>
+</h:head>
 <body>
-	<h:form>
-		<h3>Glad you decided to join us!</h3>
-		<h3>Please fill out all your information in the form below!</h3>
-    	<h:panelGrid columns="2" >
-    	<h:outputLabel value="Username: "/>
-    	<h:inputText value="#{volcontr.volunteerDto.username}"/>
+<h:form>
+    <h3>Glad you decided to join us!</h3>
+    <h3>Please fill out all your information in the form below!</h3>
+    <h:panelGrid columns="2" >
+        <h:outputLabel value="Username: "/>
+        <h:inputText value="#{volcontr.volunteerDto.username}"/>
         <h:outputLabel value="Password: "/>
-		<h:inputSecret value="#{volcontr.volunteerDto.password}"/>
-		<h:outputLabel value="Email:" />
-		<h:inputText value="#{volcontr.volunteerDto.email}"/>
+        <h:inputSecret value="#{volcontr.volunteerDto.password}"/>
+        <h:outputLabel value="Email:" />
+        <h:inputText value="#{volcontr.volunteerDto.email}"/>
 
-		<h:outputLabel value="Name: "/>
-		<h:inputText value="#{volcontr.volunteerDto.name}"/>
-		<h:outputLabel value="Surname:"/>
-    	<h:inputText value="#{volcontr.volunteerDto.surname}"/>
-    	<h:outputLabel value="Date Of Birth"/>
-		<h:inputText id="datefield" value="#{volcontr.volunteerDto.dateOfBirth}" >
-				<f:convertDateTime pattern="dd/MM/yyyy" />
+        <h:outputLabel value="Name: "/>
+        <h:inputText value="#{volcontr.volunteerDto.name}"/>
+        <h:outputLabel value="Surname:"/>
+        <h:inputText value="#{volcontr.volunteerDto.surname}"/>
+        <h:outputLabel value="Date Of Birth"/>
+        <h:inputText id="datefield" value="#{volcontr.volunteerDto.dateOfBirth}" >
+            <f:convertDateTime pattern="dd/MM/yyyy" />
         </h:inputText>
-    	<h:outputLabel value="Area: "/>
-    	<h:inputText value="#{volcontr.volunteerDto.area}"/>
-    	<h:outputLabel value="Telephone: "/>
-    	<h:inputText value="#{volcontr.volunteerDto.telephone}" />
-		<h:selectManyCheckbox value="#{volcontr.userInterestList}">
-		<c:forEach var="item" items="#{volcontr.interestList}">
-			<f:selectItem itemValue = "#{item.databaseID}" itemLabel = "#{item.descriptionEnglishLowerCase}"/>
-		</c:forEach>
-		</h:selectManyCheckbox>
-		<h:selectManyCheckbox value="#{volcontr.userKnowledgeList}">
-			<c:forEach var="item" items="#{volcontr.knowledgeList}">
-				<f:selectItem itemValue = "#{item.databaseID}" itemLabel = "#{item.descriptionEnglishLowerCase}"/>
-			</c:forEach>
-		</h:selectManyCheckbox>
-    	</h:panelGrid>
-    	<h:commandButton value="Submit" action="#{volcontr.setVolunteerDto()}"/>
-    	<h:commandButton value="Back" action="#{volcontr.backPage}"/>
-    </h:form>
-	<script type="text/javascript">
-		$(document).ready(function () {
-            $(document.getElementById("j_idt2:datefield")).attr("readonly", "readonly");
-			$(document.getElementById("j_idt2:datefield")).datepicker({
-                format: 'dd/mm/yyyy',
-                ignoreReadonly: true,
-			});
+        <h:outputLabel value="Gender:"/>
+        <h:selectOneRadio value = "#{volcontr.volunteerDto.sex}">
+            <f:selectItem itemValue = "M" itemLabel = "Male" />
+            <f:selectItem itemValue = "F" itemLabel = "Female" />
+        </h:selectOneRadio>
+        <h:outputLabel for="arl" value="Area:" />
+        <h:selectOneMenu id="arl" value="#{volcontr.areaList}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{volcontr.areaList}" />
+        </h:selectOneMenu>
+        <h:outputLabel value="Telephone: "/>
+        <h:inputText value="#{volcontr.volunteerDto.telephone}" />
+        <h:outputLabel value="Interests: "/>
+        <h:selectManyCheckbox value="#{volcontr.userInterestList}" columns="1" converter="interconv">
+            <f:selectItems value="#{volcontr.interestList}" var="inter" itemLabel="#{inter.descriptionEnglishLowerCase}" itemValue="#{inter}" />
+        </h:selectManyCheckbox>
+        <h:outputLabel value="Knowledge: "/>
+        <h:selectManyCheckbox value="#{volcontr.userKnowledgeList}" columns="1" converter="knowlconv">
+            <f:selectItems value="#{volcontr.knowledgeList}" var="knowl" itemLabel="#{knowl.descriptionEnglishLowerCase}" itemValue="#{knowl}" />
+        </h:selectManyCheckbox>
+    </h:panelGrid>
+    <h:commandButton value="Submit" action="#{volcontr.setVolunteerDto()}"/>
+    <h:commandButton value="Back" action="#{volcontr.backPage}"/>
+</h:form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document.getElementById("j_idt5:datefield")).attr("readonly", "readonly");
+        $(document.getElementById("j_idt5:datefield")).datepicker({
+            format: 'dd/mm/yyyy',
+            ignoreReadonly: true,
         });
-	</script>
+    });
+</script>
 </body>
 </html>
