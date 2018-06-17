@@ -130,7 +130,7 @@ public class OpportunityController implements Serializable{
         questionnaireDao.insertQuestionnaire(this.questionnaireDto);
     }
 
-    public String checkOpportunity() {
+    /*public String checkOpportunity() {
         boolean check = OpportunityDAOImplementation.findOpportunityById();
         if (check) {
             HttpSession session = SessionUtils.getSession();
@@ -151,7 +151,7 @@ public class OpportunityController implements Serializable{
                             "The activity you're searching for is not valid."));
             return "login";
         }
-    }
+    }*/
 
     public List<QuestionDTO> getQuestlist() {
         return questlist;

@@ -48,15 +48,14 @@
       <version>0.3m</version>
     </dependency>
     <dependency>
-<<<<<<< HEAD
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
       <version>6.2</version>
-=======
+    </dependency>
+    <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
       <version>1.4</version>
->>>>>>> 9f1bcc42036053a6c70190e9b8fea7be85d539d9
     </dependency>
   </dependencies>
   <build>
