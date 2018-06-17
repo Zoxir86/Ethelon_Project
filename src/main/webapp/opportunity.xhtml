@@ -26,7 +26,6 @@
         <h:inputText value="#{oppcontr.opportunityDto.englishSummary}"/>
         <h:outputLabel value="Detailed Description:" />
         <h:inputText value="#{oppcontr.opportunityDto.englishDescription}"/>
-
         <h:outputLabel value="Overseeing Employee: "/>
         <h:inputText value="#{oppcontr.opportunityDto.contactPerson}"/>
         <h:outputLabel value="Overseeing Employee's Email:"/>
@@ -39,9 +38,10 @@
         <h:inputText id="cldatefield" value="#{oppcontr.opportunityDto.closeDate}" >
             <f:convertDateTime pattern="dd/MM/yyyy" />
         </h:inputText>
-        <h:outputLabel value="Where will it be held? "/>
-        <h:selectOneMenu value="#{oppcontr.oppAreaList}" converter="">
-            <f:selectItems value="#{oppcontr.areaList}" var="ar" itemValue="#{ar.databaseID}" itemLabel="#{ar.area}" />
+        <h:outputLabel for="arl" value="Where will it be held? "/>
+        <h:selectOneMenu id="arl" value="#{volcontr.areaList}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{volcontr.areaList}" />
         </h:selectOneMenu>
         <h:outputLabel value="Select tag(s) that are applicable: "/>
         <h:selectManyCheckbox value="#{oppcontr.oppInterestList}" columns="1" converter="interconv">
@@ -57,10 +57,13 @@
             <f:selectItem itemValue = "N" itemLabel = "No" />
         </h:selectOneRadio>
         <h:outputLabel value="What are the questions that you would like to ask your volunteers?"/>
+        <br></br>
         <h:outputLabel value="Question 1:"/>
         <h:inputText value="#{oppcontr.question1}"/>
+        <br></br>
         <h:outputLabel value="Question 2:"/>
         <h:inputText value="#{oppcontr.question2}"/>
+        <br></br>
         <h:outputLabel value="Question 3:" />
         <h:inputText value="#{oppcontr.question3}"/>
     </h:panelGrid>
