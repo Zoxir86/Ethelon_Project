@@ -1,6 +1,7 @@
 package com.dto;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,14 +32,17 @@ public class VolunteerDTO {
     private Date loggedInLast = null;                           // Latest date of log-in.
     private Date accountCreated = null;                         // The date on which the user account has been created.
     private Date accountUpdated = null;                         // The date on which the user account has last been updated.
-
+    private boolean selected;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public VolunteerDTO( ) {
         super();
     }
 
-    public VolunteerDTO(String name, String surname, Date dateOfBirth, String sex, boolean isVolunteerYN, boolean isEthelonVolunteerYN, Date appliedLast, AreaDTO area, List<ApplicationDTO> applicationsList, List<ApplicationDTO> pendingApplicationsList, List<InterestDTO> interestsList, List<KnowledgeAreaDTO> knowledgeAreasList, String otherKnowledge, int databaseID, String username, String password, String telephone, String email, Date loggedInLast, Date accountCreated, Date accountUpdated) {
+    public VolunteerDTO(String name, String surname, Date dateOfBirth, String sex, boolean isVolunteerYN, boolean isEthelonVolunteerYN,
+                        Date appliedLast, AreaDTO area, List<ApplicationDTO> applicationsList, List<ApplicationDTO> pendingApplicationsList,
+                        List<InterestDTO> interestsList, List<KnowledgeAreaDTO> knowledgeAreasList, String otherKnowledge, int databaseID,
+                        String username, String password, String telephone, String email, Date loggedInLast, Date accountCreated, Date accountUpdated) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
@@ -61,6 +65,7 @@ public class VolunteerDTO {
         this.accountCreated = accountCreated;
         this.accountUpdated = accountUpdated;
     }
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public String getName() {
@@ -128,6 +133,7 @@ public class VolunteerDTO {
     }
 
     public List<ApplicationDTO> getApplicationsList() {
+        if (applicationsList == null) applicationsList = new ArrayList<ApplicationDTO>();
         return applicationsList;
     }
 
@@ -136,6 +142,7 @@ public class VolunteerDTO {
     }
 
     public List<ApplicationDTO> getPendingApplicationsList() {
+        if (pendingApplicationsList == null) pendingApplicationsList = new ArrayList<ApplicationDTO>();
         return pendingApplicationsList;
     }
 
@@ -144,6 +151,7 @@ public class VolunteerDTO {
     }
 
     public List<InterestDTO> getInterestsList() {
+        if (interestsList == null) interestsList = new ArrayList<InterestDTO>();
         return interestsList;
     }
 
@@ -152,6 +160,7 @@ public class VolunteerDTO {
     }
 
     public List<KnowledgeAreaDTO> getKnowledgeAreasList() {
+        if (knowledgeAreasList == null) knowledgeAreasList = new ArrayList<KnowledgeAreaDTO>();
         return knowledgeAreasList;
     }
 
@@ -229,5 +238,13 @@ public class VolunteerDTO {
 
     public void setAccountUpdated(Date accountUpdated) {
         this.accountUpdated = accountUpdated;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

@@ -1,15 +1,16 @@
 package com.dto;
 
-import com.database.Question;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionnaireDTO {
 
+
     private int databaseId;                          // A unique identification number in the database.
     private List<QuestionDTO> questionList;          // A list of questions associated with the questionnaire.
 
-    /**************************************  Constructors   ***********************************************/
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public QuestionnaireDTO ( ) {
         super();
     }
@@ -19,7 +20,7 @@ public class QuestionnaireDTO {
         this.questionList = questionList;
     }
 
-    /***************************************   Getters and Setters   ***************************************/
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public int getDatabaseId() {
         return databaseId;
     }
@@ -33,6 +34,8 @@ public class QuestionnaireDTO {
     }
 
     public void setQuestionList(List<QuestionDTO> questionList) {
+        if (questionList == null) questionList = new ArrayList<QuestionDTO>();
         this.questionList = questionList;
     }
+
 } // End of QuestionnaireDTO class.

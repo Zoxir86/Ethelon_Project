@@ -1,48 +1,57 @@
 package com.dao;
 
-import com.database.Questionnaire;
-import com.dto.NgoDTO;
+import com.database.ApplicationState;
 import com.database.Ngo;
-
+import com.database.Opportunity;
+import com.database.SocialMedium;
+import com.dto.NgoDTO;
+import com.dto.OpportunityDTO;
+import com.dto.SocialMediumDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class NgoDAOImplementation implements NgoDAO {
 
+    private static final boolean SUCCESS = true;
+    private static final boolean ERROR = false;
+
     private static final String PERSISTENCE_UNIT_NAME = "Ethelon";
-    private static EntityManagerFactory factory;
-    EntityManager em;
-
-    public NgoDAOImplementation(){
-
-    }
 
 
     /********************************************************************************************************************
-     Insert a new Ngo entity in the database. Uses a DTO as input. It also manages transactions so as to permit
-     rollback on failures.
+     Insert a new Ngo entity in the database. Uses a DTO as input. Returns SUCCESS (true) or ERROR (false).
      *******************************************************************************************************************/
 
-    public boolean insertNgo(NgoDTO ngo) {
+    public boolean insertNgo(NgoDTO dto) {
 
         boolean result;
-        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        em = factory.createEntityManager();
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
 
         try{
             em.getTransaction().begin();
-            Ngo entity = transformNgoDTO2Entity(ngo);
+            Ngo entity = transformNgoDTO2Entity(dto);
+            if(entity.getOpportunitiesList() == null) entity.setOpportunitiesList(new ArrayList<Opportunity>());
+            if(entity.getSocialMediaList() == null) entity.setSocialMediaList(new ArrayList<SocialMedium>());
             entity.setAccountCreated(Utilities.ft.format(new Date()));
+            entity.setAccountUpdated(Utilities.ft.format(new Date()));
+            entity.setLastOpportunityUpload("");
+            entity.setLoggedInLast(Utilities.ft.format(new Date()));
+            entity.setStatus(ApplicationState.PENDING);
+            entity.setHiddenYN(true);
             em.persist(entity);
             em.getTransaction().commit();
-            result = true;
+            result = SUCCESS;
         } catch (Exception e){
             em.getTransaction().rollback();
-            result = false;
+            result = ERROR;
         } finally {
             em.close();
             factory.close();
@@ -52,77 +61,90 @@ public class NgoDAOImplementation implements NgoDAO {
 
 
     /********************************************************************************************************************
-     Deletes an existing Volunteer entity in the database. Uses a DTO as input. It also manages transactions so as to
-     permit rollback on failures.
+     Deletes an existing Ngo entity in the database. Uses a DTO as input. Returns SUCCESS (true) or ERROR (false).
      *******************************************************************************************************************/
 
-    public boolean deleteNgo(NgoDTO ngo){
-        if(ngo.getDatabaseID() == 0) return false;                  // TODO maybe userID instead?
+    public boolean deleteNgo(NgoDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
 
         boolean result;
-        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        em = factory.createEntityManager();
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
 
-        try{
+        try {
             em.getTransaction().begin();
-            Ngo entity = em.find(Ngo.class, ngo.getDatabaseID());
+            Ngo entity = em.find( Ngo.class, dto.getDatabaseID() );
             em.remove(entity);
             em.getTransaction().commit();
-            result = true;
-        } catch (Exception e){
+            result = SUCCESS;
+        } catch(Exception e) {
             em.getTransaction().rollback();
-            result = false;
-        } finally {
+            result = ERROR;
+        }
+        finally {
             em.close();
             factory.close();
         }
+
         return result;
     }
 
 
     /********************************************************************************************************************
-     Updates an existing Volunteer entity in the database. Uses a DTO as input. It also manages transactions so as to
-     permit rollback on failures.
+     Updates an existing Ngo entity in the database. Uses a DTO as input.
+
+     Note1: opportunitiesList, lastOpportunityUpload, loggedInLast, accountCreated, accountUpdated,
+     username, password, userID are not updated through this method.
+     Note2: Social Media entities are provided by the database, only the ID
+     is used from the DTO.
+
+     Returns SUCCESS (true) or ERROR (false).
      *******************************************************************************************************************/
 
-    public boolean updateNgo(NgoDTO ngo){
-        if(ngo.getDatabaseID() == 0) return false;                  // TODO maybe userID instead?
+    public boolean updateNgo(NgoDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
 
         boolean result;
-        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        em = factory.createEntityManager();
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
 
         try{
             em.getTransaction().begin();
-            Ngo entity = em.find( Ngo.class, ngo.getDatabaseID());
-            entity.setOrganizationName(ngo.getOrganizationName());
-            entity.setWebpage(ngo.getWebpage());
-            entity.setAddress(ngo.getAddress());
-            entity.setStreetNo(ngo.getStreetNo());
-            entity.setPostalCode(ngo.getPostalCode());
-            entity.setCity(ngo.getCity());
-            entity.setCountry(ngo.getCountry());
-            entity.setContactPerson(ngo.getContactPerson());
-            entity.setDescGreek(ngo.getDescGreek());
-            entity.setDescEnglish(ngo.getDescEnglish());
-            entity.setSocialMedium1(ngo.getSocialMedium1());               // TODO transform these to entities. Sylvia has given specific ones, but they may change in the future.
-            entity.setSocialMedium2(ngo.getSocialMedium2());
-            entity.setSocialMedium3(ngo.getSocialMedium3());
-            entity.setLogoId(ngo.getLogoId());
-            entity.setLastOpportunityUpload(Utilities.ft.format(ngo.getLastOpportunityUpload()));
-            entity.setUsername(ngo.getUsername());
-            entity.setPassword(ngo.getPassword());
-            entity.setTelephone(ngo.getTelephone());
-            entity.setEmail(ngo.getEmail());
-            entity.setLoggedInLast(Utilities.ft.format(ngo.getLoggedInLast()));
-            entity.setAccountCreated(Utilities.ft.format(ngo.getAccountCreated()));
+            Ngo entity = em.find( Ngo.class, dto.getDatabaseID());
+
+            entity.setOrganizationName(dto.getOrganizationName());
+            entity.setWebpage(dto.getWebpage());
+            entity.setAddress(dto.getAddress());
+            entity.setStreetNo(dto.getStreetNo());
+            entity.setPostalCode(dto.getPostalCode());
+            entity.setCity(dto.getCity());
+            entity.setCountry(dto.getCountry());
+            entity.setContactPerson(dto.getContactPerson());
+            entity.setDescGreek(dto.getDescGreek());
+            entity.setDescEnglish(dto.getDescEnglish());
+            entity.setLogoId(dto.getLogoId());
+            if(dto.getStatus().equals(ApplicationState.PENDING)) entity.setStatus(ApplicationState.PENDING);
+            else if(dto.getStatus().equals(ApplicationState.APPROVED)) entity.setStatus(ApplicationState.APPROVED);
+            else if(dto.getStatus().equals(ApplicationState.DISAPPROVED)) entity.setStatus(ApplicationState.DISAPPROVED);
+            entity.setHiddenYN(dto.isHiddenYN());
+            entity.setSocialMediaList(new ArrayList<SocialMedium>());
+            if(entity.getSocialMediaList() != null && !dto.getSocialMediaList().isEmpty())
+            {
+                for (SocialMediumDTO temp : dto.getSocialMediaList()) {
+                    entity.getSocialMediaList().add(SocialMediumDAOImplementation.transformSocialMediumDTO2Entity(temp));
+                }
+            }
+            entity.setTelephone(dto.getTelephone());
+            entity.setEmail(dto.getEmail());
+            entity.setAccountUpdated(Utilities.ft.format(new Date()));
             em.persist(entity);
             em.getTransaction().commit();
-            result = true;
-
+            result = SUCCESS;
         }   catch (Exception e){
             em.getTransaction().rollback();
-            result = false;
+            result = ERROR;
         }
         finally{
             em.close();
@@ -132,34 +154,255 @@ public class NgoDAOImplementation implements NgoDAO {
     }
 
 
+    /********************************************************************************************************************
+     Updates an existing Ngo entity in the database to mark it as Hidden (from the volunteers).
+     Probable reasons: it is outdated, it is unacceptable, it was asked etc.
+     Uses a DTO as input. Returns SUCCESS (true) or ERROR (false).
+     *******************************************************************************************************************/
+
+    public boolean markNgoAsHidden(NgoDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
+
+        boolean result;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try{
+            em.getTransaction().begin();
+            Ngo entity = em.find( Ngo.class, dto.getDatabaseID());
+            entity.setHiddenYN(true);
+            entity.setAccountUpdated(Utilities.ft.format(new Date()));
+            em.persist(entity);
+            em.getTransaction().commit();
+            result = SUCCESS;
+        }   catch (Exception e){
+            em.getTransaction().rollback();
+            result = ERROR;
+        }
+        finally{
+            em.close();
+            factory.close();
+        }
+        return result;
+    }
+
+
+    /********************************************************************************************************************
+     Updates an existing Ngo entity in the database to mark it as NotHidden (from the volunteers).
+     Uses a DTO as input. Returns SUCCESS (true) or ERROR (false).
+     *******************************************************************************************************************/
+
+    public boolean markNgoAsNotHidden(NgoDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
+
+        boolean result;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try{
+            em.getTransaction().begin();
+            Ngo entity = em.find( Ngo.class, dto.getDatabaseID());
+            entity.setHiddenYN(false);
+            entity.setAccountUpdated(Utilities.ft.format(new Date()));
+            em.persist(entity);
+            em.getTransaction().commit();
+            result = SUCCESS;
+        }   catch (Exception e){
+            em.getTransaction().rollback();
+            result = ERROR;
+        }
+        finally{
+            em.close();
+            factory.close();
+        }
+        return result;
+    }
+
+
+    /********************************************************************************************************************
+     Updates an existing Ngo entity in the database to mark it as Approved + Not Hidden (by Ethelon admin).
+     Uses a DTO as input. Returns SUCCESS (true) or ERROR (false).
+     *******************************************************************************************************************/
+
+    public boolean markNgoAsApproved(NgoDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
+
+        boolean result;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try{
+            em.getTransaction().begin();
+            Ngo entity = em.find( Ngo.class, dto.getDatabaseID());
+            entity.setHiddenYN(false);
+            entity.setStatus(ApplicationState.APPROVED);
+            entity.setAccountUpdated(Utilities.ft.format(new Date()));
+            em.persist(entity);
+            em.getTransaction().commit();
+            result = SUCCESS;
+        }   catch (Exception e){
+            em.getTransaction().rollback();
+            result = ERROR;
+        }
+        finally{
+            em.close();
+            factory.close();
+        }
+        return result;
+    }
+
+
+    /********************************************************************************************************************
+     Updates an existing Ngo entity in the database to mark it as Disapproved + Hidden (by Ethelon admin).
+     Uses a DTO as input. Returns SUCCESS (true) or ERROR (false).
+     *******************************************************************************************************************/
+
+    public boolean markNgoAsDisapproved(NgoDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
+
+        boolean result;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try{
+            em.getTransaction().begin();
+            Ngo entity = em.find( Ngo.class, dto.getDatabaseID());
+            entity.setHiddenYN(true);
+            entity.setStatus(ApplicationState.DISAPPROVED);
+            entity.setAccountUpdated(Utilities.ft.format(new Date()));
+            em.persist(entity);
+            em.getTransaction().commit();
+            result = SUCCESS;
+        }   catch (Exception e){
+            em.getTransaction().rollback();
+            result = ERROR;
+        }
+        finally{
+            em.close();
+            factory.close();
+        }
+        return result;
+    }
+
+
+    /********************************************************************************************************************
+     Returns the full list of Ngos. Returns null if nothing is found.
+     *******************************************************************************************************************/
+
+    public ArrayList<NgoDTO> getFullListOfNgos()
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        ArrayList<NgoDTO> ngoDTOList = new ArrayList<NgoDTO>();
+
+        try {
+            Query q = em.createQuery("SELECT n FROM Ngo n where 1=1 ");
+            List<Ngo> entityList = q.getResultList();
+            NgoDTO temp;
+
+            if (entityList.size() != 0) {
+                for (Ngo current : entityList) {
+                    temp = transformNgoEntity2DTO(current);
+                    temp.setDatabaseID(current.getUserID());
+                    ngoDTOList.add(temp);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ngoDTOList = null;
+        } finally {
+            em.close();
+            factory.close();
+        }
+
+        return ngoDTOList;
+    }
+
+
+    /********************************************************************************************************************
+     Returns the full list of Ngos that have not uploaded opportunities after a given date. Returns null
+     if nothing is found.
+     *******************************************************************************************************************/
+
+    public ArrayList<NgoDTO> getFullListOfInactiveNgos(Date date)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        ArrayList<NgoDTO> ngoDTOList = new ArrayList<NgoDTO>();
+
+        try {
+            Query q = em.createQuery("SELECT n FROM Ngo n where 1=1 ");
+            List<Ngo> entityList = q.getResultList();
+            NgoDTO temp;
+            Date dateToTest = new Date();
+
+            if (entityList.size() != 0) {
+                for (Ngo current : entityList) {
+                    try {
+                        dateToTest = Utilities.ft.parse(current.getLastOpportunityUpload());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    if(dateToTest.after(date)) continue;
+                    temp = transformNgoEntity2DTO(current);
+                    temp.setDatabaseID(current.getUserID());
+                    ngoDTOList.add(temp);
+                }
+                if(ngoDTOList.size() == 0) ngoDTOList = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ngoDTOList = null;
+        } finally {
+            em.close();
+            factory.close();
+        }
+
+        return ngoDTOList;
+    }
+
+
     /******************************************************************************************************************
-     Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
+     Utility: Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
+
+     Note: opportunitiesList, lastOpportunityUpload, loggedInLast, accountCreated, accountUpdated are never
+     transported, through a DTO towards the database.
+     Social Media entities are provided by the database, only the ID is used from the DTO.
      *****************************************************************************************************************/
 
-    public static Ngo transformNgoDTO2Entity(NgoDTO ngo) {
+    public static Ngo transformNgoDTO2Entity(NgoDTO dto) {
         Ngo entity = new Ngo();
-
-        entity.setOrganizationName(ngo.getOrganizationName());
-        entity.setWebpage(ngo.getWebpage());
-        entity.setAddress(ngo.getAddress());
-        entity.setStreetNo(ngo.getStreetNo());
-        entity.setPostalCode(ngo.getPostalCode());
-        entity.setCity(ngo.getCity());
-        entity.setCountry(ngo.getCountry());
-        entity.setContactPerson(ngo.getContactPerson());
-        entity.setDescGreek(ngo.getDescGreek());
-        entity.setDescEnglish(ngo.getDescEnglish());
-        entity.setSocialMedium1(ngo.getSocialMedium1());
-        entity.setSocialMedium2(ngo.getSocialMedium2());
-        entity.setSocialMedium3(ngo.getSocialMedium3());
-        entity.setLogoId(ngo.getLogoId());
-       // entity.setLastOpportunityUpload(Utilities.ft.format(ngo.getLastOpportunityUpload()));
-        entity.setUsername(ngo.getUsername());
-        entity.setPassword(ngo.getPassword());
-        entity.setTelephone(ngo.getTelephone());
-        entity.setEmail(ngo.getEmail());
-       // entity.setLoggedInLast(Utilities.ft.format(ngo.getLoggedInLast()));
-       // entity.setAccountCreated(Utilities.ft.format(ngo.getAccountCreated()));
+        entity.setOrganizationName(dto.getOrganizationName());
+        entity.setWebpage(dto.getWebpage());
+        entity.setAddress(dto.getAddress());
+        entity.setStreetNo(dto.getStreetNo());
+        entity.setPostalCode(dto.getPostalCode());
+        entity.setCity(dto.getCity());
+        entity.setCountry(dto.getCountry());
+        entity.setContactPerson(dto.getContactPerson());
+        entity.setDescGreek(dto.getDescGreek());
+        entity.setDescEnglish(dto.getDescEnglish());
+        entity.setLogoId(dto.getLogoId());
+        if(dto.getStatus().equals(ApplicationState.PENDING)) entity.setStatus(ApplicationState.PENDING);
+        else if(dto.getStatus().equals(ApplicationState.APPROVED)) entity.setStatus(ApplicationState.APPROVED);
+        else if(dto.getStatus().equals(ApplicationState.DISAPPROVED)) entity.setStatus(ApplicationState.DISAPPROVED);
+        entity.setHiddenYN(dto.isHiddenYN());
+        entity.setSocialMediaList(new ArrayList<SocialMedium>());
+        if(entity.getSocialMediaList() != null && !dto.getSocialMediaList().isEmpty())
+        {
+            for (SocialMediumDTO temp : dto.getSocialMediaList()) {
+                entity.getSocialMediaList().add(SocialMediumDAOImplementation.transformSocialMediumDTO2Entity(temp));
+            }
+        }
+        entity.setUserID(dto.getDatabaseID());
+        entity.setUsername(dto.getUsername());
+        entity.setPassword(dto.getPassword());
+        entity.setTelephone(dto.getTelephone());
+        entity.setEmail(dto.getEmail());
         return entity;
     }
 
@@ -168,30 +411,48 @@ public class NgoDAOImplementation implements NgoDAO {
      Performs transformation from Entities (used by the JPA mechanisms) to DTO (incoming and outgoing calls).
      *****************************************************************************************************************/
 
-    public static NgoDTO transformNgoEntity2DTO(Ngo ngo) {
+    public static NgoDTO transformNgoEntity2DTO(Ngo entity) {
         NgoDTO dto = new NgoDTO();
-        dto.setOrganizationName(ngo.getOrganizationName());
-        dto.setWebpage(ngo.getWebpage());
-        dto.setAddress(ngo.getAddress());
-        dto.setStreetNo(ngo.getStreetNo());
-        dto.setPostalCode(ngo.getPostalCode());
-        dto.setCity(ngo.getCity());
-        dto.setCountry(ngo.getCountry());
-        dto.setContactPerson(ngo.getContactPerson());
-        dto.setDescGreek(ngo.getDescGreek());
-        dto.setDescEnglish(ngo.getDescEnglish());
-        dto.setSocialMedium1(ngo.getSocialMedium1());
-        dto.setSocialMedium2(ngo.getSocialMedium2());
-        dto.setSocialMedium3(ngo.getSocialMedium3());
-        dto.setLogoId(ngo.getLogoId());
-        dto.setUsername(ngo.getUsername());
-        dto.setPassword(ngo.getPassword());
-        dto.setTelephone(ngo.getTelephone());
-        dto.setEmail(ngo.getEmail());
+        dto.setOrganizationName(entity.getOrganizationName());
+        dto.setWebpage(entity.getWebpage());
+        dto.setAddress(entity.getAddress());
+        dto.setStreetNo(entity.getStreetNo());
+        dto.setPostalCode(entity.getPostalCode());
+        dto.setCity(entity.getCity());
+        dto.setCountry(entity.getCountry());
+        dto.setContactPerson(entity.getContactPerson());
+        dto.setDescGreek(entity.getDescGreek());
+        dto.setDescEnglish(entity.getDescEnglish());
+        dto.setLogoId(entity.getLogoId());
+        if(entity.getStatus().equals(ApplicationState.PENDING)) dto.setStatus(ApplicationState.PENDING);
+        else if(entity.getStatus().equals(ApplicationState.APPROVED)) dto.setStatus(ApplicationState.APPROVED);
+        else if(entity.getStatus().equals(ApplicationState.DISAPPROVED)) dto.setStatus(ApplicationState.DISAPPROVED);
+        dto.setHiddenYN(entity.isHiddenYN());
+        dto.setOpportunitiesList(new ArrayList<OpportunityDTO>());
+        if(dto.getOpportunitiesList() != null && !entity.getOpportunitiesList().isEmpty())
+        {
+            for (Opportunity temp : entity.getOpportunitiesList()) {
+                dto.getOpportunitiesList().add(OpportunityDAOImplementation.transformOpportunityEntity2DTO(temp));
+            }
+        }
+        dto.setSocialMediaList(new ArrayList<SocialMediumDTO>());
+        if(dto.getSocialMediaList() != null && !entity.getSocialMediaList().isEmpty())
+        {
+            for (SocialMedium temp : entity.getSocialMediaList()) {
+                dto.getSocialMediaList().add(SocialMediumDAOImplementation.transformSocialMediumEntity2DTO(temp));
+            }
+        }
+
+        dto.setDatabaseID(entity.getUserID());
+        dto.setUsername(entity.getUsername());
+        dto.setPassword(entity.getPassword());
+        dto.setTelephone(entity.getTelephone());
+        dto.setEmail(entity.getEmail());
         try {
-             dto.setLastOpportunityUpload(Utilities.ft.parse(ngo.getLastOpportunityUpload()));
-             dto.setLoggedInLast(Utilities.ft.parse(ngo.getLoggedInLast()));
-             dto.setAccountCreated(Utilities.ft.parse(ngo.getAccountCreated()));
+            dto.setLastOpportunityUpload(Utilities.ft.parse(entity.getLastOpportunityUpload()));
+            dto.setLoggedInLast(Utilities.ft.parse(entity.getLoggedInLast()));
+            dto.setAccountCreated(Utilities.ft.parse(entity.getAccountCreated()));
+            dto.setAccountUpdated(Utilities.ft.parse(entity.getAccountUpdated()));
         } catch (ParseException e) {
             e.printStackTrace();
         }

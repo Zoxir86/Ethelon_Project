@@ -37,6 +37,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
             em.getTransaction().begin();
             Volunteer entity = transformVolunteerDTO2Entity(dto);
             entity.setEthelonVolunteerYN(false);
+
             if (entity.getApplicationsList() == null) {
                 entity.setApplicationsList(new ArrayList<Application>());
             }
@@ -104,7 +105,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
      Updates an existing Volunteer entity in the database. Uses a DTO as input.
 
      Note1: isEthelonVolunter, appliedLast, applicationsList, pendingApplicationsList, databaseID, username,
-     password, accountCreated, loggedInLast are not updated through this method.
+     password, userID, accountCreated, loggedInLast, username, password are not updated through this method.
      Note2: Area/Interests/KnowledgeAreas entities are provided by the database, only the ID
      is used from the DTO.
 
@@ -151,11 +152,11 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
             entity.setAccountUpdated(Utilities.ft.format(new Date()));
             em.persist(entity);
             em.getTransaction().commit();
-            result = true;
+            result = SUCCESS;
 
         }   catch(Exception e){
             em.getTransaction().rollback();
-            result = false;
+            result = ERROR;
         }
         finally {
             em.close();
@@ -282,6 +283,7 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
         dto.setUsername(entity.getUsername());
         dto.setPassword(entity.getPassword());
         dto.setTelephone(entity.getTelephone());
+        dto.setEmail(entity.getEmail());
         try {
             dto.setDateOfBirth(Utilities.ft.parse(entity.getDateOfBirth()));
             dto.setAppliedLast(Utilities.ft.parse(entity.getAppliedLast()));

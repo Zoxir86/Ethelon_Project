@@ -1,6 +1,7 @@
 package com.database;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "questionnaire")
@@ -21,7 +22,7 @@ public class Questionnaire {
     @Column(name="UpdateDate")                                      // The date on which the questionnaire was last updated.
     private String updateDate;
 
-    /**************************************  Constructors   ***********************************************/
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Constructors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public Questionnaire( ) {
         super();
     }
@@ -30,7 +31,7 @@ public class Questionnaire {
         this.questionList = questionList;
     }
 
-    /***************************************   Getters and Setters   ***************************************/
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public int getQuestionnaireId() {
         return questionnaireId;
     }
@@ -40,6 +41,7 @@ public class Questionnaire {
     }
 
     public List<Question> getQuestionList() {
+        if (questionList == null) questionList = new ArrayList<Question>();
         return questionList;
     }
 
@@ -62,4 +64,5 @@ public class Questionnaire {
     public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
+
 } // End of Questionnaire class.
