@@ -1,10 +1,7 @@
 package com.dao;
 
 import com.database.*;
-import com.dto.ApplicationDTO;
-import com.dto.InterestDTO;
-import com.dto.KnowledgeAreaDTO;
-import com.dto.OpportunityDTO;
+import com.dto.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -82,7 +79,6 @@ public class OpportunityDAOImplementation implements OpportunityDAO {
 
         try {
             Query q = em.createQuery("SELECT o FROM Opportunity o ");
-            //Query q = em.createQuery("SELECT a FROM Area a ");
             List<Opportunity> opportunitiesList = q.getResultList();
             OpportunityDTO temp;
 
@@ -102,6 +98,154 @@ public class OpportunityDAOImplementation implements OpportunityDAO {
         }
 
         return opportunityDTOList;
+    }
+
+
+    /********************************************************************************************************************
+     Returns a list of the Opportunities that are open and not hidden. Also checks whether the respective Ngo is
+     approved and not hidden. Returns null if nothing is found.
+     *******************************************************************************************************************/
+
+    public ArrayList<OpportunityDTO> getListOfOpenNotHiddenOpportunities()
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        ArrayList<OpportunityDTO> opportunityDTOList = new ArrayList<OpportunityDTO>();
+
+        try {
+            Query q = em.createQuery("SELECT o FROM Opportunity o WHERE o.isHiddenYN = false AND o.isOpenYN = true ");
+            List<Opportunity> opportunitiesList = q.getResultList();
+            OpportunityDTO temp;
+            Ngo ngo;
+
+            if (opportunitiesList.size() != 0) {
+                for (Opportunity current : opportunitiesList) {
+
+                    ngo = current.getNgo();
+                    if(ngo == null) continue;   // This state is obviously erroneous.
+                    if(ngo.isHiddenYN() == true || ngo.getStatus() != ApplicationState.APPROVED) continue;
+
+                    temp = transformOpportunityEntity2DTO(current);
+                    temp.setDatabaseID(current.getOpportunityID());
+                    opportunityDTOList.add(temp);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            opportunityDTOList = null;
+        } finally {
+            em.close();
+            factory.close();
+        }
+
+        return opportunityDTOList;
+    }
+
+
+    /********************************************************************************************************************
+     Returns a list of the Opportunities that are open and not hidden for a particular Ngo. Also checks whether
+     the Ngo is approved and not hidden. Returns null if nothing is found.
+     *******************************************************************************************************************/
+
+    public ArrayList<OpportunityDTO> getListOfOpenNotHiddenOpportunitiesForParticularNgo(NgoDTO organization)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        ArrayList<OpportunityDTO> opportunityDTOList = new ArrayList<OpportunityDTO>();
+
+        try {
+            Query q = em.createQuery("SELECT o FROM Opportunity o WHERE o.isHiddenYN = false AND o.isOpenYN = true ");
+            List<Opportunity> opportunitiesList = q.getResultList();
+            OpportunityDTO temp;
+            Ngo ngo;
+
+            if (opportunitiesList.size() != 0) {
+                for (Opportunity current : opportunitiesList) {
+
+                    ngo = current.getNgo();
+                    if(ngo == null) continue;   // This state is obviously erroneous.
+                    if(ngo.getUserID() != organization.getDatabaseID()) continue;
+                    if(ngo.isHiddenYN() == true || ngo.getStatus() != ApplicationState.APPROVED) continue;
+
+                    temp = transformOpportunityEntity2DTO(current);
+                    temp.setDatabaseID(current.getOpportunityID());
+                    opportunityDTOList.add(temp);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            opportunityDTOList = null;
+        } finally {
+            em.close();
+            factory.close();
+        }
+
+        return opportunityDTOList;
+    }
+
+
+    /********************************************************************************************************************
+     Marks an opportunity as Hidden from the frontend.
+     *******************************************************************************************************************/
+
+    public boolean markOpportunityAsHidden(OpportunityDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
+
+        boolean result;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try{
+            em.getTransaction().begin();
+            Opportunity entity = em.find( Opportunity.class, dto.getDatabaseID());
+            entity.setHiddenYN(true);
+            entity.setUpdateDate(Utilities.ft.format(new Date()));
+            em.persist(entity);
+            em.getTransaction().commit();
+            result = SUCCESS;
+        }   catch (Exception e){
+            em.getTransaction().rollback();
+            result = ERROR;
+        }
+        finally{
+            em.close();
+            factory.close();
+        }
+        return result;
+    }
+
+
+    /********************************************************************************************************************
+     Closes an opportunity so applications may no longer be submitted.
+     *******************************************************************************************************************/
+
+    public boolean markOpportunityAsClosed(OpportunityDTO dto){
+
+        if(dto.getDatabaseID() == 0) return ERROR;
+
+        boolean result;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+
+        try{
+            em.getTransaction().begin();
+            Opportunity entity = em.find( Opportunity.class, dto.getDatabaseID());
+            entity.setOpenYN(false);
+            entity.setCloseDate(Utilities.ft.format(new Date()));
+            entity.setUpdateDate(Utilities.ft.format(new Date()));
+            em.persist(entity);
+            em.getTransaction().commit();
+            result = SUCCESS;
+        }   catch (Exception e){
+            em.getTransaction().rollback();
+            result = ERROR;
+        }
+        finally{
+            em.close();
+            factory.close();
+        }
+        return result;
     }
 
 
