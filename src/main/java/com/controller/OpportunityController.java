@@ -16,6 +16,7 @@ import com.dao.*;
 import com.dto.*;
 import com.lists.Interests;
 import com.lists.Knowledge;
+import com.lists.Questions;
 import com.session.SessionUtils;
 
 
@@ -40,18 +41,24 @@ public class OpportunityController implements Serializable{
     private QuestionDTO question2 = new QuestionDTO();
     private QuestionDTO question3 = new QuestionDTO();
     private List<QuestionDTO> questlist = new ArrayList<QuestionDTO>();
+    private String q1text = "";
+    private String q2text = "";
+    private String q3text = "";
 
 
     @ManagedProperty("#{intlist}")
     private Interests interService;
     @ManagedProperty("#{knowlist}")
     private Knowledge knowlService;
+    @ManagedProperty("#{qstlist}")
+    private Questions questService;
 
 
     @PostConstruct
     public void init(){
         interestList = interService.getInterestList();
         knowledgeList = knowlService.getKnowledgeList();
+        questlist = questService.getQuestion();
     }
 
 
@@ -63,6 +70,9 @@ public class OpportunityController implements Serializable{
     public String setOpportunityDto() {
         this.opportunityDto.setKnowledgeAreasList(this.oppKnowledgeList);
         this.opportunityDto.setSecondaryCategoriesList(this.oppInterestList);
+
+        int questionnaireId = setQuestionnaireDto();
+        
         this.opportunityDto.setQuestionnaire(this.questionnaireDto);
 
         opportunityDao.insertOpportunity(this.opportunityDto);
@@ -122,12 +132,17 @@ public class OpportunityController implements Serializable{
         return questionnaireDto;
     }
 
-    public void setQuestionnaireDto() {
+    public int setQuestionnaireDto() {
+        question1.setTextEnglish(this.q1text);
+        question2.setTextEnglish(this.q2text);
+        question3.setTextEnglish(this.q3text);
         questlist.add(question1);
         questlist.add(question2);
         questlist.add(question3);
         this.questionnaireDto.setQuestionList(this.questlist);
         questionnaireDao.insertQuestionnaire(this.questionnaireDto);
+
+        return this.questionnaireDto.getDatabaseId();
     }
 
     /*public String checkOpportunity() {
@@ -155,6 +170,10 @@ public class OpportunityController implements Serializable{
 
     public List<QuestionDTO> getQuestlist() {
         return questlist;
+    }
+
+    public void setQuestService(Questions questService) {
+        this.questService = questService;
     }
 
     public void setQuestlist(List<QuestionDTO> questlist) {
@@ -194,4 +213,16 @@ public class OpportunityController implements Serializable{
     public String successOpp() {
         return "success.xhtml";
     }
+
+    public String getQ1text() {return q1text;}
+
+    public void setQ1text(String q1text) { this.q1text=q1text;}
+
+    public String getQ2text() {return q2text;}
+
+    public void setQ2text(String q2text) { this.q2text=q2text;}
+
+    public String getQ3text() {return q3text;}
+
+    public void setQ3text(String q3text) { this.q3text=q3text;}
 }

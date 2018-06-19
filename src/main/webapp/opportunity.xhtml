@@ -58,27 +58,25 @@
         </h:selectOneRadio>
         <h:outputLabel value="What are the questions that you would like to ask your volunteers?"/>
         <br></br>
-        <h:outputLabel value="Question 1:"/>
-        <h:inputText value="#{oppcontr.question1}"/>
-        <br></br>
-        <h:outputLabel value="Question 2:"/>
-        <h:inputText value="#{oppcontr.question2}"/>
-        <br></br>
+        <h:outputLabel value="Question 1:" />
+        <h:inputText value="#{oppcontr.q1text}"/>
+        <h:outputLabel value="Question 2:" />
+        <h:inputText value="#{oppcontr.q2text}" />
         <h:outputLabel value="Question 3:" />
-        <h:inputText value="#{oppcontr.question3}"/>
+        <h:inputText value="#{oppcontr.q3text}" />
     </h:panelGrid>
     <h:commandButton value="Submit" action="#{oppcontr.setOpportunityDto}"/>
     <h:commandButton value="Back" action="#{oppcontr.backPage}"/>
 </h:form>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(document.getElementById("j_idt5:opdatefield")).attr("readonly", "readonly");
-        $(document.getElementById("j_idt5:opdatefield")).datepicker({
+        $(document.getElementById("j_idt2:opdatefield")).attr("readonly", "readonly");
+        $(document.getElementById("j_idt2:opdatefield")).datepicker({
             format: 'dd/mm/yyyy',
             ignoreReadonly: true,
         });
-        $(document.getElementById("j_idt6:cldatefield")).attr("readonly", "readonly");
-        $(document.getElementById("j_idt6:cldatefield")).datepicker({
+        $(document.getElementById("j_idt2:cldatefield")).attr("readonly", "readonly");
+        $(document.getElementById("j_idt2:cldatefield")).datepicker({
             format: 'dd/mm/yyyy',
             ignoreReadonly: true,
         });
