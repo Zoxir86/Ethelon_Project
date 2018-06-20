@@ -365,6 +365,37 @@ public class NgoDAOImplementation implements NgoDAO {
         return ngoDTOList;
     }
 
+    public NgoDTO validateNgo(String username, String password){
+
+        if(username==null||password==null) return null;
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        Ngo entity;
+        NgoDTO ngoDto;
+
+        try {
+            Query query= em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password");
+            query.setParameter("username", username);
+            query.setParameter("password", password);
+            entity = (Ngo) query.getSingleResult();
+            ngoDto = transformNgoEntity2DTO(entity);
+
+
+        } catch(Exception e) {
+            ngoDto=null;
+        }
+
+
+        finally {
+            em.close();
+            factory.close();
+        }
+
+        return ngoDto;
+    }
+
+
 
     /******************************************************************************************************************
      Utility: Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).
@@ -387,12 +418,15 @@ public class NgoDAOImplementation implements NgoDAO {
         entity.setDescGreek(dto.getDescGreek());
         entity.setDescEnglish(dto.getDescEnglish());
         entity.setLogoId(dto.getLogoId());
-        if(dto.getStatus().equals(ApplicationState.PENDING)) entity.setStatus(ApplicationState.PENDING);
-        else if(dto.getStatus().equals(ApplicationState.APPROVED)) entity.setStatus(ApplicationState.APPROVED);
-        else if(dto.getStatus().equals(ApplicationState.DISAPPROVED)) entity.setStatus(ApplicationState.DISAPPROVED);
+        if(dto.getStatus() != null) {
+            if (dto.getStatus().equals(ApplicationState.PENDING)) entity.setStatus(ApplicationState.PENDING);
+            else if (dto.getStatus().equals(ApplicationState.APPROVED)) entity.setStatus(ApplicationState.APPROVED);
+            else if (dto.getStatus().equals(ApplicationState.DISAPPROVED))
+                entity.setStatus(ApplicationState.DISAPPROVED);
+        }
         entity.setHiddenYN(dto.isHiddenYN());
         entity.setSocialMediaList(new ArrayList<SocialMedium>());
-        if(entity.getSocialMediaList() != null && !dto.getSocialMediaList().isEmpty())
+        if(entity.getSocialMediaList() != null && dto.getSocialMediaList() != null && !dto.getSocialMediaList().isEmpty())
         {
             for (SocialMediumDTO temp : dto.getSocialMediaList()) {
                 entity.getSocialMediaList().add(SocialMediumDAOImplementation.transformSocialMediumDTO2Entity(temp));
@@ -424,12 +458,15 @@ public class NgoDAOImplementation implements NgoDAO {
         dto.setDescGreek(entity.getDescGreek());
         dto.setDescEnglish(entity.getDescEnglish());
         dto.setLogoId(entity.getLogoId());
-        if(entity.getStatus().equals(ApplicationState.PENDING)) dto.setStatus(ApplicationState.PENDING);
-        else if(entity.getStatus().equals(ApplicationState.APPROVED)) dto.setStatus(ApplicationState.APPROVED);
-        else if(entity.getStatus().equals(ApplicationState.DISAPPROVED)) dto.setStatus(ApplicationState.DISAPPROVED);
+        if(entity.getStatus() != null) {
+            if (entity.getStatus().equals(ApplicationState.PENDING)) dto.setStatus(ApplicationState.PENDING);
+            else if (entity.getStatus().equals(ApplicationState.APPROVED)) dto.setStatus(ApplicationState.APPROVED);
+            else if (entity.getStatus().equals(ApplicationState.DISAPPROVED))
+                dto.setStatus(ApplicationState.DISAPPROVED);
+        }
         dto.setHiddenYN(entity.isHiddenYN());
         dto.setOpportunitiesList(new ArrayList<OpportunityDTO>());
-        if(dto.getOpportunitiesList() != null && !entity.getOpportunitiesList().isEmpty())
+        if(dto.getOpportunitiesList() != null && entity.getSocialMediaList() != null && !entity.getOpportunitiesList().isEmpty())
         {
             for (Opportunity temp : entity.getOpportunitiesList()) {
                 dto.getOpportunitiesList().add(OpportunityDAOImplementation.transformOpportunityEntity2DTO(temp));

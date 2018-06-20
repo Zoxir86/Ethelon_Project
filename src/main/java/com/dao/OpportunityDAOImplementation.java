@@ -100,6 +100,38 @@ public class OpportunityDAOImplementation implements OpportunityDAO {
         return opportunityDTOList;
     }
 
+    public ArrayList<OpportunityDTO> getListOfNgoOpportunities(int ngoID)
+    {
+        if(ngoID == 0) return null;
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        ArrayList<OpportunityDTO> opportunityNgoDTOList = new ArrayList<OpportunityDTO>();
+
+        try {
+            Query q = em.createQuery("SELECT o FROM Opportunity o WHERE o.ngo.userID= :ngoID ");
+            q.setParameter("ngoID", ngoID);
+            List<Opportunity> opportunitiesList = q.getResultList();
+            OpportunityDTO temp;
+
+            if (opportunitiesList.size() != 0) {
+                for (Opportunity current : opportunitiesList) {
+                    temp = transformOpportunityEntity2DTO(current);
+                    temp.setDatabaseID(current.getOpportunityID());
+                    opportunityNgoDTOList.add(temp);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            opportunityNgoDTOList = null;
+        } finally {
+            em.close();
+            factory.close();
+        }
+
+        return opportunityNgoDTOList;
+    }
+
 
     /********************************************************************************************************************
      Returns a list of the Opportunities that are open and not hidden. Also checks whether the respective Ngo is
@@ -398,5 +430,32 @@ public class OpportunityDAOImplementation implements OpportunityDAO {
         }
 
         return entity;
+    }
+
+    public OpportunityDTO checkOpportunity (int databaseID){
+        if(databaseID == 0) return  null;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        Opportunity entity;
+        OpportunityDTO opportunityDTO;
+
+        try {
+            Query query= em.createQuery("SELECT o FROM Opportunity o WHERE o.opportunityID = :opportunityID ");
+            query.setParameter("opportunityID", databaseID);
+            entity = (Opportunity) query.getSingleResult();
+            opportunityDTO=transformOpportunityEntity2DTO(entity);
+
+
+        } catch(Exception e) {
+            opportunityDTO=null;
+        }
+
+
+        finally {
+            em.close();
+            factory.close();
+        }
+
+        return opportunityDTO;
     }
 } // End of OpportunityDAOImplementation class.

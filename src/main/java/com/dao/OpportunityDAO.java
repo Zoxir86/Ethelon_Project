@@ -26,4 +26,8 @@ public interface OpportunityDAO {
     // Returns a list of the Opportunities that are open and not hidden for a particular Ngo. Also checks whether
     // the Ngo is approved and not hidden. Returns null if nothing is found.
     public ArrayList<OpportunityDTO> getListOfOpenNotHiddenOpportunitiesForParticularNgo(NgoDTO organization);
+
+    public OpportunityDTO checkOpportunity(int opportunityID);
+
+    public ArrayList<OpportunityDTO> getListOfNgoOpportunities(int ngoID);
 }

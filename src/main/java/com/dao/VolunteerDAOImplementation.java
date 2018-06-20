@@ -9,6 +9,7 @@ import com.dto.VolunteerDTO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -190,6 +191,37 @@ public class VolunteerDAOImplementation implements VolunteerDAO {
 
         return entity;
     }
+
+    public VolunteerDTO validateVolunteer(String Username, String Password){
+
+        if(Username==null||Password==null) return null;
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        Volunteer entity;
+        VolunteerDTO volDto;
+
+        try {
+            Query query= em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password");
+            query.setParameter("username", Username);
+            query.setParameter("password", Password);
+            entity = (Volunteer) query.getSingleResult();
+            volDto=transformVolunteerEntity2DTO(entity);
+
+
+        } catch(Exception e) {
+            volDto=null;
+        }
+
+
+        finally {
+            em.close();
+            factory.close();
+        }
+
+        return volDto;
+    }
+
 
     /******************************************************************************************************************
      Utility: Performs transformation from DTO (incoming and outgoing calls) to Entities (used by the JPA mechanisms).

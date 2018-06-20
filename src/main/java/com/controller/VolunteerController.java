@@ -7,18 +7,18 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
 
 import com.dao.*;
 import com.database.Interest;
 import com.database.KnowledgeArea;
 import com.database.Volunteer;
-import com.dto.AreaDTO;
-import com.dto.InterestDTO;
-import com.dto.KnowledgeAreaDTO;
-import com.dto.VolunteerDTO;
+import com.dto.*;
 import com.lists.Areas;
 import com.lists.Interests;
 import com.lists.Knowledge;
+import com.session.SessionUtils;
 
 
 @ManagedBean (name = "volcontr")
@@ -37,6 +37,11 @@ public class VolunteerController implements Serializable {
 	private AreaDAO area = new AreaDAOImplementation();
 	private List<AreaDTO> areaList = new ArrayList<AreaDTO>();
     public List<AreaDTO> userAreaList = new ArrayList<AreaDTO>();
+
+
+    private ApplicationDAO application = new ApplicationDAOImplementation();
+    private List<ApplicationDTO> applicationList = new ArrayList<ApplicationDTO>();
+    private List<ApplicationDTO> userApplicationList = new ArrayList<ApplicationDTO>();
 
     @ManagedProperty("#{intlist}")
     private Interests interService;
@@ -77,6 +82,16 @@ public class VolunteerController implements Serializable {
 
 		return "success.xhtml";
 	}
+    public String loginVolunteer() {
+
+        volunteerDto = volunteerDao.validateVolunteer(this.volunteerDto.getUsername(),this.volunteerDto.getPassword());
+
+		HttpSession session=SessionUtils.getSession();
+		session.setAttribute("VolunteerDTO", volunteerDto);
+        return "frontend/profile_vol.jsp";
+
+
+    }
 
 	public List<InterestDTO> getInterestList() {
     	return interestList;
@@ -151,4 +166,5 @@ public class VolunteerController implements Serializable {
 	public String successUser() {
 		return "success.xhtml";
 	}
+
 }

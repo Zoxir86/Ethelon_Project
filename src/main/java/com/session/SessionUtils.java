@@ -16,12 +16,12 @@ public class SessionUtils {
                 .getExternalContext().getRequest();
     }
 
-    public static String getUserId() {
+    public static int getUserId() {
         HttpSession session = getSession();
         if (session != null)
-            return (String) session.getAttribute("userid");
+            return (int) session.getAttribute("userid");
         else
-            return null;
+            return 0;
     }
 
     /*public static String getName() {

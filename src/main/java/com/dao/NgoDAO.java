@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.dto.NgoDTO;
+import com.dto.VolunteerDTO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,4 +34,6 @@ public interface NgoDAO {
 
     // Returns the full list of Ngos that have not uploaded opportunities after a given date. Returns null if nothing is found.
     public ArrayList<NgoDTO> getFullListOfInactiveNgos(Date date);
+
+    public NgoDTO validateNgo(String username, String password);
 }

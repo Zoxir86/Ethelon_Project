@@ -16,4 +16,6 @@ public interface VolunteerDAO {
 
     // Returning a Volunteer entity as persisted in the database when the databaseID is known.
     public Volunteer findVolunteerById(int databaseID);
+
+    public VolunteerDTO validateVolunteer(String username, String password);
 }

@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -25,7 +26,6 @@
         <h:inputText value="#{oppcontr.opportunityDto.englishSummary}"/>
         <h:outputLabel value="Detailed Description:" />
         <h:inputText value="#{oppcontr.opportunityDto.englishDescription}"/>
-
         <h:outputLabel value="Overseeing Employee: "/>
         <h:inputText value="#{oppcontr.opportunityDto.contactPerson}"/>
         <h:outputLabel value="Overseeing Employee's Email:"/>
@@ -38,30 +38,32 @@
         <h:inputText id="cldatefield" value="#{oppcontr.opportunityDto.closeDate}" >
             <f:convertDateTime pattern="dd/MM/yyyy" />
         </h:inputText>
-        <h:outputLabel value="Where will it be held? "/>
-        <h:selectOneMenu value="#{oppcontr.oppAreaList}" converter="omnifaces.SelectItemsConverter">
-            <f:selectItems value="#{oppcontr.areaList}" var="ar" itemValue="#{ar.databaseID}" itemLabel="#{ar.area}" />
+        <h:outputLabel for="arl" value="Where will it be held? "/>
+        <h:selectOneMenu id="arl" value="#{volcontr.areaList}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{volcontr.areaList}" />
         </h:selectOneMenu>
         <h:outputLabel value="Select tag(s) that are applicable: "/>
-        <h:selectManyCheckbox value="#{oppcontr.oppInterestList}" converter="omnifaces.SelectItemsConverter">
-            <c:forEach var="inter" items="#{oppcontr.interestList}">
-                <f:selectItem itemValue = "#{inter.databaseID}" itemLabel = "#{inter.descriptionEnglishLowerCase}"/>
-            </c:forEach>
+        <h:selectManyCheckbox value="#{oppcontr.oppInterestList}" columns="1" converter="interconv">
+            <f:selectItems value="#{oppcontr.interestList}" var="inter" itemLabel="#{inter.descriptionEnglishLowerCase}" itemValue="#{inter}" />
         </h:selectManyCheckbox>
         <h:outputLabel value="Select applicable possible volunteer knowledge: "/>
-        <h:selectManyCheckbox value="#{oppcontr.oppKnowledgeList}" converter="omnifaces.SelectItemsConverter">
-            <c:forEach var="knowl" items="#{oppcontr.knowledgeList}">
-                <f:selectItem itemValue = "#{knowl.databaseID}" itemLabel = "#{knowl.descriptionEnglishLowerCase}"/>
-            </c:forEach>
+        <h:selectManyCheckbox value="#{oppcontr.oppKnowledgeList}" columns="1" converter="knowlconv">
+            <f:selectItems value="#{oppcontr.knowledgeList}" var="knowl" itemLabel="#{knowl.descriptionEnglishLowerCase}" itemValue="#{knowl}" />
         </h:selectManyCheckbox>
         <h:outputLabel value="Will you provide special training?" />
         <h:selectOneRadio value = "#{oppcontr.opportunityDto.trainingProvidedYN}">
             <f:selectItem itemValue = "Y" itemLabel = "Yes" />
             <f:selectItem itemValue = "N" itemLabel = "No" />
         </h:selectOneRadio>
-        <h:outputLabel value="What questions would you like to ask your volunteers?"/>
-        <h:outputLabel value="Question 1:"/>
-        <h:inputText:
+        <h:outputLabel value="What are the questions that you would like to ask your volunteers?"/>
+        <br></br>
+        <h:outputLabel value="Question 1:" />
+        <h:inputText value="#{oppcontr.q1text}"/>
+        <h:outputLabel value="Question 2:" />
+        <h:inputText value="#{oppcontr.q2text}" />
+        <h:outputLabel value="Question 3:" />
+        <h:inputText value="#{oppcontr.q3text}" />
     </h:panelGrid>
     <h:commandButton value="Submit" action="#{oppcontr.setOpportunityDto}"/>
     <h:commandButton value="Back" action="#{oppcontr.backPage}"/>

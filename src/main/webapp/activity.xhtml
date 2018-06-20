@@ -13,15 +13,14 @@
 </head>
 <body>
 <h:form>
-    <h3>Create your new Opportunity for volunteers!</h3>
-    <h3>Please fill out all your information in the form below!</h3>
+    <h3>activity</h3>
+
     <h:panelGrid columns="2" >
+        <h:outputLabel value="Title: "/>
         <h:outputLabel value="#{oppcontr.opportunityDto.englishTitle}"/>
         <h:outputLabel value="Summary: "/>
-        <br></br>
         <h:outputLabel value="#{oppcontr.opportunityDto.englishSummary}"/>
         <h:outputLabel value="Detailed Description:" />
-        <br></br>
         <h:outputLabel value="#{oppcontr.opportunityDto.englishDescription}"/>
         <h:outputLabel value="Starting Date:"/>
         <h:outputLabel value="#{oppcontr.opportunityDto.openDate}"/>
@@ -30,14 +29,18 @@
         <h:outputLabel value="Area:"/>
         <h:outputLabel value="#{oppcontr.opportunityDto.area}"/>
         <h:outputLabel value="This activity has to do with:"/>
-        <h:outputLabel value="#{oppcontr.opportunityDto.secondaryCategoriesList}"/>
+        <ui:repeat value="#{oppcontr.opportunityDto.secondaryCategoriesList}" var="item">
+        ${item.descriptionGreekLowerCase}<br/>
+        </ui:repeat>
         <h:outputLabel value="Beneficial knowledges:"/>
-        <h:outputLabel value="#{oppcontr.opportunityDto.knowledgeAreasList}"/>
+        <ui:repeat value="#{oppcontr.opportunityDto.knowledgeAreasList}" var="item">
+            ${item.descriptionGreekLowerCase} <br/>
+        </ui:repeat>
+
         <h:outputLabel value="Training will be provided:" />
         <h:outputLabel value = "#{oppcontr.opportunityDto.trainingProvidedYN}"/>
     </h:panelGrid>
-    <h:commandButton value="Apply" action="#{oppcontr.setOpportunityDto}"/>
-    <h:commandButton value="Back" action="#{oppcontr.backPage}"/>
+
 </h:form>
 </body>
 </html>

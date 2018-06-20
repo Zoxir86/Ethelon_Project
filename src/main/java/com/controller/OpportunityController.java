@@ -13,6 +13,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 
 import com.dao.*;
+import com.database.Opportunity;
+import com.database.User;
 import com.dto.*;
 import com.lists.Interests;
 import com.lists.Knowledge;
@@ -44,7 +46,6 @@ public class OpportunityController implements Serializable{
     private String q1text = "";
     private String q2text = "";
     private String q3text = "";
-
 
     @ManagedProperty("#{intlist}")
     private Interests interService;
@@ -167,6 +168,25 @@ public class OpportunityController implements Serializable{
             return "login";
         }
     }*/
+    public List<OpportunityDTO> getAllOpportunities() {
+
+       return opportunityDao.getFullListOfOpportunities();
+
+    }
+    public String displayOpportunity(int opportunityID) {
+
+        opportunityDto = opportunityDao.checkOpportunity(opportunityID);
+        HttpSession session = SessionUtils.getSession();
+        session.setAttribute("OpportunityDTO", opportunityDto);
+        return "activity.xhtml";
+    }
+
+    public List<OpportunityDTO> ngoOpportunities (){
+
+       int ngoID = SessionUtils.getUserId();
+       return opportunityDao.getListOfNgoOpportunities(ngoID);
+
+    }
 
     public List<QuestionDTO> getQuestlist() {
         return questlist;
@@ -225,4 +245,5 @@ public class OpportunityController implements Serializable{
     public String getQ3text() {return q3text;}
 
     public void setQ3text(String q3text) { this.q3text=q3text;}
+
 }

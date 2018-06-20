@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Ethelon:war exploded">
-    <output-path />
+    <output-path>$PROJECT_DIR$/target/Ethelon</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -15,7 +15,9 @@
           <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
           <element id="library" level="project" name="Maven: org.mindrot:jbcrypt:0.3m" />
           <element id="library" level="project" name="Maven: org.primefaces:primefaces:6.2" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
